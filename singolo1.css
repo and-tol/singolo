@@ -49,6 +49,7 @@ body {
   text-transform: uppercase;
   margin-left: 30px;
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 .nav_item::after {
   content: '·';
