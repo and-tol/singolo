@@ -57,6 +57,9 @@ body {
   right: -16px;
   color: #494e62;
 }
+.nav_item:last-child::after {
+  display: none;
+}
 .nav_item:hover,
 .nav_item:active {
   color: var(--bg-slider);
