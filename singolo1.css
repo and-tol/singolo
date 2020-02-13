@@ -1,4 +1,63 @@
+/* COMMON STYLE */
+/* wariables */
+:root {
+  --bg-header: #2d303a;
+  --bg-border: #323746;
+  --bg-slider: #f06c64;
+}
+
 html,
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'LatoLatinWeb', sans-serif;
+}
+.wrapper {
+  width: 1020px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* HEADER STYLE */
+.header {
+  height: 89px;
+  box-sizing: content-box;
+  background-color: var(--bg-header);
+  border-bottom: 6px solid var(--bg-border);
+  display: flex;
+}
+.header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.logo span {
+  color: var(--bg-slider);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_item {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-left: 30px;
+  transition: all 0.3s ease-out;
+}
+.nav_item::after {
+  content: '·';
+  position: relative;
+  right: -16px;
+  color: #494e62;
+}
+.nav_item:hover,
+.nav_item:active {
+  color: var(--bg-slider);
+  transition: all 0.3s ease-out;
 }

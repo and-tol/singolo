@@ -1,0 +1,45 @@
+/* Webfont: LatoLatin-Black */
+@font-face {
+  font-family: 'LatoLatinWebBlack';
+  src: url('./assets/fonts/Lato/LatoLatin-Black.woff2') format('woff2'),
+    url('./assets/fonts/Lato/LatoLatin-Black.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Webfont: LatoLatin-Bold */
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src: url('./assets/fonts/Lato/LatoLatin-Bold.woff2') format('woff2'),
+    url('./assets/fonts/Lato/LatoLatin-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* Webfont: LatoLatin-Heavy */
+@font-face {
+  font-family: 'LatoLatinWebHeavy';
+  src: url('./assets/fonts/Lato/LatoLatin-Heavy.woff2') format('woff2'),
+    url('./assets/fonts/Lato/LatoLatin-Heavy.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Webfont: LatoLatin-Light */
+@font-face {
+  font-family: 'LatoLatinWebLight';
+  src: url('./assets/fonts/Lato/LatoLatin-Light.woff2') format('woff2'),
+    url('./assets/fonts/Lato/LatoLatin-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Webfont: LatoLatin-Regular */
+@font-face {
+  font-family: 'LatoLatinWeb';
+  src: url('./assets/fonts/Lato/LatoLatin-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/Lato/LatoLatin-Regular.woff2') format('woff2'),
+    url('./assets/fonts/Lato/LatoLatin-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
