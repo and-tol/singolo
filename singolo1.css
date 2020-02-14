@@ -14,8 +14,8 @@ body {
   width: 1020px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* HEADER STYLE */
@@ -66,4 +66,41 @@ body {
 .nav_item:active {
   color: var(--bg-slider);
   transition: all 0.3s ease-out;
+}
+
+/* Style for HERO == SLIDER */
+.hero {
+  background-color: var(--bg-slider);
+  height: 606px;
+}
+.hero .wrapper {
+  height: 100%;
+}
+.slider {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.slider_nav {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 60px;
+}
+.slider_nav .arrow {
+  cursor: pointer;
+}
+.slider_nav .arrow svg {
+  fill: #ca4549;
+  transition: all 0.25s ease-in;
+  transform: scaleX(0.35);
+}
+.slider_nav .arrow svg:hover {
+  /* fill: var(--bg-header); */
+  transition: all 0.4s ease-in;
+  transform: scaleX(1.2);
+  filter: saturate(1);
+}
+.arrow_right {
+  transform: rotate(180deg);
 }
