@@ -81,9 +81,12 @@ body {
   align-items: center;
   height: 100%;
 }
+.slider_content {
+  width: 100%;
+}
 .slider_nav {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   cursor: pointer;
   width: 60px;
 }
@@ -92,14 +95,13 @@ body {
 }
 .slider_nav .arrow svg {
   fill: #ca4549;
-  transition: all 0.25s ease-in;
-  transform: scaleX(0.35);
+  transition: all 0.2s ease-in;
 }
 .slider_nav .arrow svg:hover {
   /* fill: var(--bg-header); */
-  transition: all 0.4s ease-in;
+  transition: all 0.3s ease-in;
   transform: scaleX(1.2);
-  filter: saturate(1);
+  filter: saturate(0.6);
 }
 .arrow_right {
   transform: rotate(180deg);
