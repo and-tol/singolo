@@ -37,7 +37,11 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-.logo span {
+.logo_text,
+.logo_sign {
+  display: inline-block;
+}
+.logo_sign {
   color: var(--bg-slider);
 }
 .nav {
