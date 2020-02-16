@@ -111,6 +111,17 @@ body {
   transform: rotate(180deg);
 }
 
+.slider_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider_content-b {
+  position: relative;
+  right: 50px;
+  bottom: 30px;
+}
+
 .picture-a .shadow-a,
 .picture-b .shadow-b {
   opacity: 15%;
