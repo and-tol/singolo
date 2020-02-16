@@ -110,3 +110,45 @@ body {
 .arrow_right {
   transform: rotate(180deg);
 }
+
+.picture-a .shadow-a,
+.picture-b .shadow-b {
+  opacity: 15%;
+}
+
+.slider_content .picture-a {
+  position: relative;
+  bottom: 236px;
+  left: 35px;
+}
+
+.picture-a .picture_layer,
+.picture-b .picture_layer {
+  position: absolute;
+}
+.picture-a .picture_layer {
+  top: 0;
+}
+.picture-a .screen-a {
+  top: 60px;
+  left: 11px;
+}
+
+.slider_content .picture-b {
+  position: relative;
+  bottom: 200px;
+}
+
+.picture-b .case-b {
+  transform: rotateZ(90deg);
+  right: 80px;
+}
+.picture-b .screen-b {
+  right: 17px;
+  top: 132px;
+}
+
+.picture-b .shadow-b {
+  transform: scale(-1, 1) rotateZ(90deg);
+  right: 55px;
+}
