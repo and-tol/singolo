@@ -37,6 +37,10 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.logo a {
+  display: block;
+  color: #ffffff;
+}
 .logo_text,
 .logo_sign {
   display: inline-block;
