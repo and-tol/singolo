@@ -197,6 +197,12 @@ p {
   text-transform: initial;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 32px;
+}
 .service-all {
   margin-top: 50px;
 }
@@ -205,6 +211,7 @@ p {
 }
 .service_content h3 {
   line-height: 1rem;
+  margin-bottom: 13px;
 }
 .service_content p {
   font-size: 12px;
