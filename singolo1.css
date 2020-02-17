@@ -1,4 +1,4 @@
-/* COMMON STYLE */
+/* --- COMMON STYLE --- */
 /* wariables */
 :root {
   --bg-header: #2d303a;
@@ -18,7 +18,7 @@ body {
   padding-right: 40px;
 }
 
-/* HEADER STYLE */
+/* --- HEADER STYLE --- */
 .header {
   height: 89px;
   box-sizing: content-box;
@@ -76,7 +76,7 @@ body {
   transition: all 0.3s ease-out;
 }
 
-/* Style for HERO == SLIDER */
+/* --- HERO == SLIDER STYLE --- */
 .hero {
   background-color: var(--bg-slider);
   height: 606px;
@@ -167,3 +167,5 @@ body {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
 }
+
+/* --- OUR SERVICES STYLE --- */
