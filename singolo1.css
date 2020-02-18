@@ -22,7 +22,8 @@ body {
   font-size: 18px;
 }
 .wrapper {
-  width: 1020px;
+  /* width: 1020px; */
+  width: 940px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 40px;
@@ -60,19 +61,25 @@ p {
 .logo_sign {
   display: inline-block;
 }
+.logo_text {
+  letter-spacing: -1px;
+  padding-top: 5px;
+}
 .logo_sign {
   color: var(--bg-slider);
 }
+/* navigation */
 .nav {
   display: flex;
   justify-content: space-between;
+  margin-top: 11px;
 }
 .nav_item {
   font-size: 12px;
   font-weight: bold;
   color: #ffffff;
   text-transform: uppercase;
-  margin-left: 30px;
+  margin-left: 25px;
   transition: all 0.3s ease-out;
   cursor: pointer;
 }
@@ -85,10 +92,12 @@ p {
 .nav_item:last-child::after {
   display: none;
 }
-.nav_item:hover,
-.nav_item:active {
+.nav_item:hover {
   color: var(--bg-slider);
   transition: all 0.3s ease-out;
+}
+.nav_item.active {
+  color: var(--bg-slider);
 }
 
 /* --- HERO == SLIDER STYLE --- */
