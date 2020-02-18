@@ -103,7 +103,7 @@ p {
 /* --- HERO == SLIDER STYLE --- */
 .hero {
   background-color: var(--bg-slider);
-  height: 606px;
+  height: 594px;
   border-bottom: var(--section-border) solid #ea676b;
 }
 .hero .wrapper {
@@ -138,6 +138,7 @@ p {
 }
 .arrow_right {
   transform: rotate(180deg);
+  margin-top: 9px;
 }
 
 .slider_content {
@@ -147,8 +148,8 @@ p {
 
 .slider_content-b {
   position: relative;
-  right: 50px;
-  bottom: 30px;
+  right: 84px;
+  bottom: 45px;
 }
 
 .picture-a .shadow-a,
@@ -158,8 +159,8 @@ p {
 
 .slider_content .picture-a {
   position: relative;
-  bottom: 236px;
-  left: 35px;
+  bottom: 244px;
+  left: 20px;
 }
 
 .picture-a .picture_layer,
@@ -170,7 +171,7 @@ p {
   top: 0;
 }
 .picture-a .screen-a {
-  top: 60px;
+  top: 62px;
   left: 11px;
 }
 
@@ -184,8 +185,8 @@ p {
   right: 80px;
 }
 .picture-b .screen-b {
-  right: 17px;
-  top: 132px;
+  right: 21px;
+  top: 133px;
 }
 
 .picture-b .shadow-b {
