@@ -48,10 +48,11 @@ p {
   align-items: center;
 }
 .logo {
-  font-size: 25px;
+  font-size: 26px;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
+  padding-top: 4px;
 }
 .logo a {
   display: block;
@@ -63,7 +64,6 @@ p {
 }
 .logo_text {
   letter-spacing: -1px;
-  padding-top: 5px;
 }
 .logo_sign {
   color: var(--bg-slider);
@@ -86,7 +86,7 @@ p {
 .nav_item::after {
   content: '·';
   position: relative;
-  right: -16px;
+  right: -12px;
   color: #494e62;
 }
 .nav_item:last-child::after {
@@ -118,8 +118,6 @@ p {
   width: 100%;
 }
 .slider_nav {
-  /* display: flex; */
-  /* align-items: center; */
   cursor: pointer;
   width: 60px;
 }
@@ -131,14 +129,16 @@ p {
   transition: all 0.2s ease-in;
 }
 .slider_nav .arrow svg:hover {
-  /* fill: #ea676b; */
   transition: all 0.3s ease-in;
   transform: scaleX(1.2);
   filter: saturate(1.2);
 }
+.arrow_left {
+  padding-left: 2px;
+}
 .arrow_right {
   transform: rotate(180deg);
-  margin-top: 9px;
+  margin-top: -9px;
 }
 
 .slider_content {
@@ -160,7 +160,7 @@ p {
 .slider_content .picture-a {
   position: relative;
   bottom: 244px;
-  left: 20px;
+  left: 19px;
 }
 
 .picture-a .picture_layer,
@@ -196,14 +196,15 @@ p {
 
 /* --- OUR SERVICES STYLE --- */
 .services {
-  padding-top: 65px;
+  padding-top: 63px;
+  padding-bottom: 60px;
   background-color: #f2f2f2;
   border-bottom: var(--section-border) solid #fff;
 }
 .services h1 {
   font-family: 'LatoLatinWebBlack';
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   text-transform: initial;
 }
 
@@ -211,34 +212,34 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
-  row-gap: 32px;
+  row-gap: 30px;
 }
 .service-all {
-  margin-top: 50px;
+  margin-top: 45px;
 }
 .service {
   display: flex;
 }
 .service_content h3 {
+  font-size: 1rem;
   line-height: 1rem;
-  margin-bottom: 13px;
+  margin-bottom: 8px;
 }
 .service_content p {
   font-size: 12px;
   line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .service .icon {
-  width: 59px;
-  height: 59px;
-
-  margin-right: 20px;
+  margin-right: 22px;
 }
 .icon_circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 59px;
-  height: 59px;
+  width: 56px;
+  height: 56px;
   border: 2px solid var(--color);
   border-radius: 100%;
 }
