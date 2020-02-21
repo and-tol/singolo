@@ -63,7 +63,7 @@ p {
   display: inline-block;
 }
 .logo_text {
-  letter-spacing: -1px;
+  letter-spacing: -0.05em;
 }
 .logo_sign {
   color: var(--bg-slider);
