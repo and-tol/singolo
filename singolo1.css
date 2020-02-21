@@ -233,7 +233,7 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.service .icon {
+.service_icon {
   margin-right: 22px;
 }
 .icon_circle {
@@ -245,8 +245,10 @@ p {
   border: 2px solid var(--color);
   border-radius: 100%;
 }
-.icon svg {
+.icon {
   position: absolute;
-  fill: var(--color);
   margin-left: 1px;
+}
+.icon-svg {
+  fill: var(--color);
 }
