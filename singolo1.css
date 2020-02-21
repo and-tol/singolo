@@ -211,8 +211,9 @@ p {
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(auto, 90px);
   column-gap: 20px;
-  row-gap: 30px;
+  row-gap: 33px;
 }
 .service-all {
   margin-top: 45px;
@@ -226,7 +227,7 @@ p {
   margin-bottom: 8px;
 }
 .service_content p {
-  height: 90px;
+  max-height: 60px;
   font-size: 12px;
   line-height: 22px;
   overflow: hidden;
@@ -239,12 +240,13 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 56px;
-  height: 56px;
+  width: 55px;
+  height: 55px;
   border: 2px solid var(--color);
   border-radius: 100%;
 }
 .icon svg {
   position: absolute;
   fill: var(--color);
+  margin-left: 1px;
 }
