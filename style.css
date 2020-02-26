@@ -199,6 +199,11 @@ p {
   fill: #666d89;
 }
 
+.portfolio {
+  background-color: #2d303a;
+  color: #767e9e;
+}
+
 /* --- SLIDER STYLE --- */
 .slider {
   display: flex;
