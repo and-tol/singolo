@@ -10,6 +10,7 @@ package-lock.json
 vendors/
 style.css.map
 singolo1.css
+.footer.txt.swp
 
 # Created by https://www.gitignore.io/api/windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=windows,visualstudiocode
