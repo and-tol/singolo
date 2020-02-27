@@ -3,9 +3,16 @@
 p,
 h1,
 h2,
-h3 {
+h3,
+h4,
+figure,
+figcaption {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .main-container {
@@ -256,6 +263,14 @@ p {
   transition: all 0.3s ease-out;
 }
 
+/* --- ABOUT US STYLE --- */
+.about__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  margin-top: 45px;
+}
+
 .btn-toggle {
   font-size: 12px;
   line-height: 22px;
@@ -367,6 +382,28 @@ p {
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
+}
+
+/* --- CARD --- */
+.card__img {
+  height: 300px;
+  width: auto;
+}
+.card__text {
+  margin-top: 17px;
+}
+.card__text p {
+  font-size: 12px;
+  line-height: 1.8em;
+}
+.card__title {
+  line-height: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-social {
+  width: 32px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
