@@ -147,7 +147,7 @@ p {
   border-bottom-color: #fff;
 }
 
-.container {
+.services__container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: minmax(auto, 90px);
@@ -206,6 +206,13 @@ p {
   border-bottom-color: #767e9e;
 }
 
+.works {
+  margin-top: 15px;
+}
+.works__navigation {
+  margin-bottom: 19px;
+}
+
 .works__btn-toggle {
   border-color: #767e9e;
   color: #767e9e;
@@ -218,6 +225,35 @@ p {
 .works__btn-toggle:active, .works__btn-toggle_active {
   border-color: #c5c5c5;
   color: #c5c5c5;
+}
+
+.works__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 187px);
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.work {
+  background-image: url("./../../assets/img/work0.png");
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.work:nth-child(n+13) {
+  display: none;
+}
+
+.work__img {
+  object-fit: cover;
+  transition: all 0.3s ease-out;
+}
+
+.work:hover .work__img {
+  opacity: 0.5;
+  transform: scale(1.05);
+  transition: all 0.3s ease-out;
 }
 
 .btn-toggle {
