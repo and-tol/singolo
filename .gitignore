@@ -18,6 +18,8 @@ linkedin.svg
 twitter.svg
 *.zip
 *.7z
+singolo1/
+singolo2/
 
 # Created by https://www.gitignore.io/api/windows,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=windows,visualstudiocode
