@@ -15,24 +15,24 @@ button {
 }
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -67,13 +67,13 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: 'LatoLatinWeb', sans-serif;
+  font-family: "LatoLatinWeb", sans-serif;
   color: #666d89;
 }
 
 p {
   line-height: 30px;
-  font-family: 'LatoLatinWebLight';
+  font-family: "LatoLatinWebLight";
 }
 
 .section {
@@ -83,7 +83,7 @@ p {
   border-bottom-style: solid;
 }
 .section__title {
-  font-family: 'LatoLatinWebBlack';
+  font-family: "LatoLatinWebBlack";
   font-size: 30px;
   margin-bottom: 18px;
   text-transform: initial;
@@ -158,7 +158,7 @@ a {
 }
 
 .nav__item::after {
-  content: '·';
+  content: "·";
   position: relative;
   right: -12px;
   color: #494e62;
@@ -229,22 +229,11 @@ a {
 }
 
 .icon-circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 55px;
-  height: 55px;
-  border: 2px solid #666d89;
-  border-radius: 100%;
 }
 
 .service .icon {
   position: absolute;
-}
-
-.service .icon-svg {
-  stroke: #666d89;
-  fill: #666d89;
 }
 
 .portfolio {
@@ -269,8 +258,7 @@ a {
   border-color: #c5c5c5;
   color: #c5c5c5;
 }
-.works__btn-toggle:active,
-.works__btn-toggle_active {
+.works__btn-toggle:active, .works__btn-toggle_active {
   border-color: #c5c5c5;
   color: #c5c5c5;
 }
@@ -284,12 +272,12 @@ a {
 }
 
 .work {
-  background-image: url('./../../assets/img/work0.png');
+  background-image: url("./../../assets/img/work0.png");
   overflow: hidden;
   cursor: pointer;
 }
 
-.work:nth-child(n + 13) {
+.work:nth-child(n+13) {
   display: none;
 }
 
