@@ -330,6 +330,10 @@ a {
   flex-basis: 300px;
 }
 
+.footer {
+  display: flex;
+}
+
 .btn-toggle {
   font-size: 12px;
   line-height: 22px;
