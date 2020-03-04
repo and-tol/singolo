@@ -64,6 +64,10 @@ textarea {
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -324,7 +328,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
-  margin-top: 45px;
+  margin-top: 43px;
 }
 
 .quote {
@@ -517,10 +521,10 @@ a {
   width: auto;
 }
 .card__content {
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 }
 .card__text {
-  margin-top: 17px;
+  margin-top: 19px;
 }
 .card__text p {
   font-size: 12px;
@@ -528,7 +532,10 @@ a {
 }
 .card__title {
   line-height: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+.card__social {
+  display: flex;
 }
 
 .socials {
