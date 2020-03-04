@@ -229,12 +229,15 @@ a {
 }
 
 .service__content h3 {
+  font-family: LatoLatinWebBlack, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1rem;
   margin-bottom: 8px;
 }
 
 .service__content p {
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
+  font-weight: normal;
   max-height: 60px;
   font-size: 12px;
   line-height: 22px;
@@ -349,6 +352,7 @@ a {
   padding: 24px 0;
   background-color: #2d303a;
   color: #666d89;
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
   font-size: 12px;
 }
 .footer .wrapper {
@@ -527,10 +531,13 @@ a {
   margin-top: 19px;
 }
 .card__text p {
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.8em;
+  font-weight: normal;
 }
 .card__title {
+  font-family: LatoLatinWebBlack, Helvetica, sans-serif;
   line-height: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -654,6 +661,7 @@ a {
 }
 
 .info__title {
+  font-family: LatoLatinWebBlack, Helvetica, sans-serif;
   line-height: 1rem;
   margin-bottom: 9px;
   padding-top: 1px;
@@ -662,6 +670,7 @@ a {
 
 .info p,
 .contact {
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 22px;
 }
