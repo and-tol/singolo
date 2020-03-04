@@ -60,6 +60,14 @@ textarea {
   border: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -87,15 +95,17 @@ p {
 
 .section {
   padding-top: 63px;
-  padding-bottom: 60px;
+  padding-bottom: 66px;
   border-bottom-width: 6px;
   border-bottom-style: solid;
 }
+
 .section__title {
   font-family: "LatoLatinWebBlack";
   font-size: 30px;
   margin-bottom: 18px;
   text-transform: initial;
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -104,7 +114,7 @@ a {
 
 .wrapper {
   /* width: 1020px; */
-  width: 940px;
+  width: 1020px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 40px;
@@ -189,8 +199,9 @@ a {
 /* --- HEADER STYLE --- */
 .header {
   background-color: #f06c64;
-  height: 594px;
+  height: 600px;
   border-bottom-color: #ea676b;
+  border-bottom-width: 6px;
 }
 
 .header .wrapper {
@@ -234,7 +245,7 @@ a {
 }
 
 .service__icon {
-  margin-right: 22px;
+  margin-right: 26px;
 }
 
 .icon-circle {
@@ -243,6 +254,7 @@ a {
 
 .service .icon {
   position: absolute;
+  width: 60px;
 }
 
 .portfolio {
@@ -252,10 +264,15 @@ a {
 }
 
 .works {
-  margin-top: 15px;
+  margin-top: 9px;
 }
+
 .works__navigation {
   margin-bottom: 19px;
+}
+
+.works-toggle {
+  display: flex;
 }
 
 .works__btn-toggle {
@@ -311,7 +328,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
-  margin-top: 45px;
+  margin-top: 43px;
 }
 
 .quote {
@@ -350,7 +367,7 @@ a {
   position: relative;
   margin-right: 8px;
   width: 32px;
-  width: 32px;
+  height: 32px;
   cursor: pointer;
   font-size: 9px;
 }
@@ -383,16 +400,17 @@ a {
 }
 
 .btn-toggle {
+  display: block;
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 20px;
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
   border-color: inherit;
   border-width: 1px;
   border-style: solid;
-  padding-right: 6px;
-  padding-left: 6px;
+  padding: 0 7px;
   transition: all 0.3s ease-in;
 }
 .btn-toggle:hover {
@@ -432,11 +450,13 @@ a {
 
 .arrow__left {
   padding-left: 2px;
+  padding-bottom: 4px;
 }
 
 .arrow__right {
   transform: rotate(180deg);
-  margin-top: -9px;
+  margin-top: -10px;
+  padding-top: 6px;
 }
 
 .slider__content {
@@ -447,7 +467,7 @@ a {
 .slider__content_b {
   position: relative;
   right: 84px;
-  bottom: 45px;
+  bottom: 48px;
 }
 
 .picture-a__shadow,
@@ -457,7 +477,7 @@ a {
 
 .slider__content .picture-a {
   position: relative;
-  bottom: 244px;
+  bottom: 247px;
   left: 19px;
 }
 
@@ -501,10 +521,10 @@ a {
   width: auto;
 }
 .card__content {
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 }
 .card__text {
-  margin-top: 17px;
+  margin-top: 19px;
 }
 .card__text p {
   font-size: 12px;
@@ -512,7 +532,10 @@ a {
 }
 .card__title {
   line-height: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+.card__social {
+  display: flex;
 }
 
 .socials {
@@ -523,7 +546,7 @@ a {
   position: relative;
   margin-right: 8px;
   width: 32px;
-  width: 32px;
+  height: 32px;
   cursor: pointer;
   font-size: 9px;
 }
