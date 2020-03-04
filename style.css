@@ -331,7 +331,55 @@ a {
 }
 
 .footer {
+  padding-top: 33px;
+  padding: 31px;
+  background-color: #2d303a;
+  color: #666d89;
+  font-size: 12px;
+}
+.footer .wrapper {
   display: flex;
+  justify-content: space-between;
+}
+
+.socials {
+  display: flex;
+}
+
+.social-link {
+  position: relative;
+  margin-right: 8px;
+  width: 32px;
+  width: 32px;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.social-link:hover .icon-social {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.social-link:hover .icon-social_hover {
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.icon-social {
+  position: absolute;
+  opacity: 1;
+  width: 32px;
+  cursor: pointer;
+  font-size: 9px;
+  transition: all 0.3s ease-out;
+}
+.icon-social_hover {
+  position: absolute;
+  width: 32px;
+  cursor: pointer;
+  font-size: 9px;
+  transition: all 0.3s ease-out;
+  opacity: 0;
 }
 
 .btn-toggle {
@@ -467,7 +515,7 @@ a {
   margin-bottom: 1rem;
 }
 
-.card__social {
+.socials {
   display: flex;
 }
 
