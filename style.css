@@ -338,7 +338,7 @@ a {
 }
 
 .communication {
-  margin-top: 40px;
+  margin-top: 43px;
   display: flex;
 }
 
@@ -595,13 +595,13 @@ a {
   border-radius: 4px;
   outline: none;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 14px;
   padding: 1em 15px 1em 15px;
 }
 .form__input::-webkit-input-placeholder {
   color: #f48c8f;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 12px;
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
@@ -610,7 +610,7 @@ a {
 .form__input:-moz-placeholder {
   color: #f48c8f;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 12px;
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
@@ -619,7 +619,7 @@ a {
 .form__input::-moz-placeholder {
   color: #f48c8f;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 12px;
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
@@ -628,7 +628,7 @@ a {
 .form__input:-ms-input-placeholder {
   color: #f48c8f;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 12px;
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
@@ -655,7 +655,9 @@ a {
 
 .info__title {
   line-height: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 9px;
+  padding-top: 1px;
+  letter-spacing: 0.01em;
 }
 
 .info p,
@@ -665,11 +667,11 @@ a {
 }
 
 .contacts {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .contact + .contact {
-  margin-top: 10px;
+  margin-top: -1px;
 }
 
 .contact a {
@@ -683,7 +685,7 @@ a {
 }
 
 .contact__icon {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 .contact__icon.address-icon {
   position: relative;
@@ -704,7 +706,8 @@ a {
   top: 2px;
   background-image: url(./assets/icons/icons-contacts.png);
   background-repeat: no-repeat;
-  background-position: center -27px;
+  background-position: center -28px;
+  height: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
