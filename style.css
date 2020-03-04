@@ -114,11 +114,9 @@ a {
 
 .wrapper {
   /* width: 1020px; */
-  width: 1020px;
+  width: 940px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
 }
 
 /* --- TOP STYLE --- */
@@ -348,8 +346,7 @@ a {
 }
 
 .footer {
-  padding-top: 33px;
-  padding: 31px;
+  padding: 24px 0;
   background-color: #2d303a;
   color: #666d89;
   font-size: 12px;
@@ -357,6 +354,9 @@ a {
 .footer .wrapper {
   display: flex;
   justify-content: space-between;
+}
+.footer .socials {
+  margin-right: -8px;
 }
 
 .socials {
