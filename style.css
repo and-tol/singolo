@@ -91,15 +91,17 @@ p {
 
 .section {
   padding-top: 63px;
-  padding-bottom: 65px;
+  padding-bottom: 66px;
   border-bottom-width: 6px;
   border-bottom-style: solid;
 }
+
 .section__title {
   font-family: "LatoLatinWebBlack";
   font-size: 30px;
   margin-bottom: 18px;
   text-transform: initial;
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -258,10 +260,15 @@ a {
 }
 
 .works {
-  margin-top: 15px;
+  margin-top: 9px;
 }
+
 .works__navigation {
   margin-bottom: 19px;
+}
+
+.works-toggle {
+  display: flex;
 }
 
 .works__btn-toggle {
@@ -389,16 +396,17 @@ a {
 }
 
 .btn-toggle {
+  display: block;
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 20px;
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
   border-color: inherit;
   border-width: 1px;
   border-style: solid;
-  padding-right: 6px;
-  padding-left: 6px;
+  padding: 0 7px;
   transition: all 0.3s ease-in;
 }
 .btn-toggle:hover {
