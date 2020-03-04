@@ -60,6 +60,10 @@ textarea {
   border: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -87,7 +91,7 @@ p {
 
 .section {
   padding-top: 63px;
-  padding-bottom: 60px;
+  padding-bottom: 65px;
   border-bottom-width: 6px;
   border-bottom-style: solid;
 }
@@ -104,7 +108,7 @@ a {
 
 .wrapper {
   /* width: 1020px; */
-  width: 940px;
+  width: 1020px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 40px;
