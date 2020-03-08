@@ -108,6 +108,10 @@ p {
   letter-spacing: 0.01em;
 }
 
+.section__text {
+  text-align: justify;
+}
+
 a {
   text-decoration: none;
 }
@@ -243,6 +247,7 @@ a {
   line-height: 22px;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: justify;
 }
 
 .service__icon {
@@ -535,6 +540,7 @@ a {
   font-size: 12px;
   line-height: 1.8em;
   font-weight: normal;
+  text-align: justify;
 }
 .card__title {
   font-family: LatoLatinWebBlack, Helvetica, sans-serif;
