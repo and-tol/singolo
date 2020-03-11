@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   ('use strict');
 
+  // === Menu === //
   //--- Smooth scrolling with web API: scrollIntoView --- //
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
@@ -47,4 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
       current.classList.remove('nav__item_active');
     });
   });
+
+  // === SLIDER === //
 });
