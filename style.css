@@ -169,6 +169,7 @@ a {
   margin-top: 11px;
 }
 .nav__item {
+  display: block;
   font-size: 12px;
   font-weight: bold;
   color: #ffffff;
@@ -522,6 +523,12 @@ a {
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
+}
+
+.slide {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /* --- CARD --- */
