@@ -454,8 +454,7 @@ a {
 
 .slider__nav .arrow svg:hover {
   transition: all 0.3s ease-in;
-  transform: scaleX(1.2);
-  filter: saturate(1.2);
+  fill: #fff;
 }
 
 .arrow__left {
@@ -478,6 +477,24 @@ a {
   position: relative;
   right: 84px;
   bottom: 48px;
+}
+
+/* --- SLIDE STYLE --- */
+.slide {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.toggle-screen {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.picture-b__black-screen {
+  transform: rotateZ(90deg);
+  right: 93px;
+  top: 61px;
 }
 
 .picture-a__shadow,
@@ -503,6 +520,7 @@ a {
 .picture-a .picture-a__screen {
   top: 62px;
   left: 11px;
+  transition: opacity 0.5s ease-in;
 }
 
 .slider__content .picture-b {
@@ -518,17 +536,12 @@ a {
 .picture-b__screen {
   right: 21px;
   top: 133px;
+  transition: opacity 0.5s ease-in;
 }
 
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
-}
-
-.slide {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 }
 
 /* --- CARD --- */
