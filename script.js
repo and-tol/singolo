@@ -1,18 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   ('use strict');
 
+  // === Menu === //
   //--- Smooth scrolling with web API: scrollIntoView --- //
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
   const linksNav = document.querySelectorAll(`.nav__item`);
   // Get all Menu target with id & section tag
   const targetNav = document.querySelectorAll('section[id]');
-  console.log('targetNav', targetNav);
-  const home = document.getElementById('home');
-  const services = document.getElementById('services');
-  const portfolio = document.getElementById('portfolio');
-  const about = document.getElementById('about');
-  const contact = document.getElementById('contact');
 
   /**
    * Function handleLinkNavClick. Implement a smooth transition by clicking on a menu item to the target block
@@ -46,5 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
       element.classList.add('nav__item_active');
       current.classList.remove('nav__item_active');
     });
+  });
+
+  // === SLIDER === //
+  // --- Phone screen reaction --- //
+  const slide1 = document.querySelector('.slide-1');
+
+  slide1.addEventListener('click', event => {
+    const target = event.target;
+
+    if (target.classList.contains('picture-b__screen')) {
+      target.classList.toggle('toggle-screen');
+    }
+    if (target.classList.contains('picture-a__screen')) {
+      target.classList.toggle('toggle-screen');
+    }
   });
 });
