@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // === SLIDER === //
-  // Phone screen reaction
+  // --- Phone screen reaction --- //
   const slide1 = document.querySelector('.slide-1');
 
   slide1.addEventListener('click', event => {
