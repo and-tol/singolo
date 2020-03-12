@@ -497,10 +497,11 @@ a {
 
 /* --- SLIDE STYLE --- */
 .slide {
-  justify-content: center;
-  width: 100%;
   display: none;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 600px;
 }
 
 .slide-1__content,
