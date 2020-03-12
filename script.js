@@ -57,4 +57,56 @@ document.addEventListener('DOMContentLoaded', () => {
       target.classList.toggle('toggle-screen');
     }
   });
+
+  // --- Slidershow --- //
+  // find elements
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const sectionHeader = document.querySelector('.header');
+
+  // find/create content element NodeList
+  const slides = document.querySelectorAll('.slide');
+
+  // functions definitions
+  const slideShowToggle = () => {
+    slides[currentSlideIndex].classList.toggle('js-show');
+  };
+  // section Header background color changing
+  const headerColorChange = () => {
+    sectionHeader.classList.toggle('js-background_blue');
+  };
+
+  let currentSlideIndex = 0;
+  slideShowToggle();
+
+  const onShowNextBtnClick = () => {
+    slideShowToggle();
+    currentSlideIndex++;
+    // для бесконечного слайдера
+    if (currentSlideIndex === slides.length) {
+      currentSlideIndex = 0;
+    }
+    slideShowToggle();
+    // slides[currentSlideIndex].classList.toggle('js-slide-move_next');
+
+    // изменение цвета бэкграунда
+    headerColorChange();
+  };
+
+  const onShowPrevBtnClick = () => {
+    slideShowToggle();
+    currentSlideIndex--;
+    // для бесконечного слайдера
+    if (currentSlideIndex < 0) {
+      currentSlideIndex = slides.length - 1;
+    }
+    slideShowToggle();
+
+    // изменение цвета бэкграунда
+    headerColorChange();
+  };
+
+  // subscribe to events
+  prevBtn.addEventListener('click', onShowPrevBtnClick);
+  nextBtn.addEventListener('click', onShowNextBtnClick);
 });

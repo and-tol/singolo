@@ -141,12 +141,14 @@ a {
 .logo {
   padding-top: 4px;
 }
-.logo a {
-  display: block;
-  font-size: 26px;
+.logo a h1 {
+  display: inline-block;
+  font-size: 25px;
+  letter-spacing: -0.03em;
   font-weight: bold;
   text-transform: uppercase;
   color: #ffffff;
+  margin-right: 0;
 }
 
 .logo__text,
@@ -160,6 +162,8 @@ a {
 
 .logo__sign {
   color: #f06c64;
+  letter-spacing: -0.03em;
+  font-size: 25px;
 }
 
 /* navigation */
@@ -205,6 +209,7 @@ a {
   height: 600px;
   border-bottom-color: #ea676b;
   border-bottom-width: 6px;
+  box-sizing: border-box;
 }
 
 .header .wrapper {
@@ -432,19 +437,24 @@ a {
   display: flex;
   align-items: center;
   height: 100%;
-}
-
-.slider__content {
-  width: 100%;
+  justify-content: space-between;
 }
 
 .slider__nav {
-  cursor: pointer;
   width: 60px;
+  z-index: 10;
 }
 
 .slider__nav .arrow {
   cursor: pointer;
+}
+
+.cursor-none {
+  cursor: auto !important;
+}
+
+.cursor-none svg:hover {
+  fill: #f0d8d9 !important;
 }
 
 .slider__nav .arrow svg {
@@ -457,20 +467,20 @@ a {
   fill: #fff;
 }
 
-.arrow__left {
-  padding-left: 2px;
+.arrow__prev {
+  padding-right: 2px;
   padding-bottom: 4px;
 }
 
-.arrow__right {
+.arrow__next {
   transform: rotate(180deg);
   margin-top: -10px;
   padding-top: 6px;
 }
 
 .slider__content {
-  display: flex;
-  justify-content: space-between;
+  width: calc(100% - 120px);
+  overflow: hidden;
 }
 
 .slider__content_b {
@@ -479,8 +489,24 @@ a {
   bottom: 48px;
 }
 
+.js-background_blue {
+  background-color: #648bf0 !important;
+  border-bottom-color: #577ad3 !important;
+  border-bottom-width: 6px;
+  height: 600px;
+}
+
 /* --- SLIDE STYLE --- */
 .slide {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 600px;
+}
+
+.slide-1__content,
+.slide-3__content {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -542,6 +568,25 @@ a {
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
+}
+
+.js-show {
+  display: flex;
+  transform: translate(0);
+  transform-origin: 50% 50% 0;
+  transition: transform 1s ease;
+}
+
+.js-slide-move_prev {
+  transform: translate(-100%);
+  transform-origin: 0% 50% 0;
+  transition: transform 1s ease;
+}
+
+.js-slide-move_next {
+  transform: translate(100%);
+  transform-origin: 100% 50% 0;
+  transition: transform 1s ease;
 }
 
 /* --- CARD --- */
