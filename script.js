@@ -121,7 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Portfolio works container
   const worksContent = document.querySelector('.works__content');
 
-  // Function
+  /**
+   * Function onTogglePortfolioButton
+   * Portfolio Tab Switching
+   */
   const onTogglePortfolioButton = event => {
     portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
 
@@ -131,8 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPortfolioWorks();
   };
 
-  // Shuffle Array
-  /** Function shuffleArray
+  /** Function shuffleArray. Shuffle Array
    * Randomize array element order in-place.
    * Using Durstenfeld shuffle algorithm.
    * @param {array} array
@@ -156,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function workTemplate(picture) {
     return `
     <figure class="work">
-      <a class="work__link" href>
+      <a class="work__link">
         <img class="work__img" src="./assets/img/${picture}.jpg" alt="${picture}" />
       </a>
     </figure>
@@ -165,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Function worksArray.
-   * create array of name of portfolio works
+   * Create array of name of portfolio works
    * @param {number} n - quantity of works in portfolio
    * @returns {array}
    */
@@ -183,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Function renderPortfolioWorks
-   * render portfolio works
+   * Render portfolio works
    */
   function renderPortfolioWorks() {
     let fragment = '';
@@ -200,11 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     worksContent.insertAdjacentHTML('afterbegin', fragment);
   }
 
-  // renderPortfolioWorks();
-  // event
+  // Events
+  // Click on tab in Portfolio
   portfolioNav.addEventListener('click', onTogglePortfolioButton);
-
-  // --- Portfolio Tab Switching --- //
-  const worksToggle = document.querySelector('.works-toggle');
-  const btnToggles = document.querySelectorAll('.btn-toggle');
 });

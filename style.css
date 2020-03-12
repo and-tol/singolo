@@ -329,6 +329,11 @@ a {
   transition: all 0.3s ease-out;
 }
 
+.work_border {
+  border: solid 5px #f06c64;
+  transition: border 0.3s ease;
+}
+
 /* --- ABOUT US STYLE --- */
 .about {
   background-color: #f2f2f2;
