@@ -209,7 +209,6 @@ a {
   height: 600px;
   border-bottom-color: #ea676b;
   border-bottom-width: 6px;
-  box-sizing: border-box;
 }
 
 .header .wrapper {
@@ -606,11 +605,15 @@ a {
   line-height: 1.8em;
   font-weight: normal;
   text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card__title {
   font-family: LatoLatinWebBlack, Helvetica, sans-serif;
   line-height: 1rem;
   margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card__social {
   display: flex;
