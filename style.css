@@ -432,10 +432,7 @@ a {
   display: flex;
   align-items: center;
   height: 100%;
-}
-
-.slider__content {
-  width: 100%;
+  justify-content: space-between;
 }
 
 .slider__nav {
@@ -476,8 +473,7 @@ a {
 }
 
 .slider__content {
-  display: flex;
-  justify-content: space-between;
+  width: calc(100% - 120px);
 }
 
 .slider__content_b {
@@ -488,9 +484,17 @@ a {
 
 /* --- SLIDE STYLE --- */
 .slide {
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   display: none;
+  justify-content: center;
+}
+
+.slide-1__content,
+.slide-3__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .show {
