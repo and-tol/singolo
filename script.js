@@ -69,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // functions definitions
   const slideShowToggle = () => {
-    slides[currentSlideIndex].classList.toggle('show');
+    slides[currentSlideIndex].classList.toggle('js-show');
   };
-
   // section Header background color changing
   const headerColorChange = () => {
     sectionHeader.classList.toggle('js-background_blue');
@@ -82,13 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const onShowNextBtnClick = () => {
     slideShowToggle();
-    // slides[currentSlideIndex].classList.toggle('js-slide-move_prev');
     currentSlideIndex++;
     // для бесконечного слайдера
     if (currentSlideIndex === slides.length) {
       currentSlideIndex = 0;
     }
     slideShowToggle();
+    // slides[currentSlideIndex].classList.toggle('js-slide-move_next');
 
     // изменение цвета бэкграунда
     headerColorChange();
