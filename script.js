@@ -109,4 +109,102 @@ document.addEventListener('DOMContentLoaded', () => {
   // subscribe to events
   prevBtn.addEventListener('click', onShowPrevBtnClick);
   nextBtn.addEventListener('click', onShowNextBtnClick);
+
+  // === Portfolio === //
+  // Portfolio works list
+  const portfolioWorks = document.querySelectorAll('.work');
+  // console.log('portfolioWorks', portfolioWorks[0].childNodes[1].childNodes[1].src);
+  // Portfolio toggle button list
+  const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
+  // Portfolio navigation
+  const portfolioNav = document.querySelector('.works-toggle');
+  // Portfolio works container
+  const worksContent = document.querySelector('.works__content');
+
+  // Function
+  const onTogglePortfolioButton = event => {
+    portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
+
+    event.target.classList.add('works__btn-toggle_active');
+
+    // shuffleArray(portfolioWorks);
+    renderPortfolioWorks();
+  };
+
+  // Shuffle Array
+  /** Function shuffleArray
+   * Randomize array element order in-place.
+   * Using Durstenfeld shuffle algorithm.
+   * @param {array} array
+   */
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  /**
+   * Function workTemplate.
+   * Create template one work from portfolio
+   * @param {string} picture
+   * @return {string}
+   */
+  function workTemplate(picture) {
+    return `
+    <figure class="work">
+      <a class="work__link" href>
+        <img class="work__img" src="./assets/img/${picture}.jpg" alt="${picture}" />
+      </a>
+    </figure>
+    `;
+  }
+
+  /**
+   * Function worksArray.
+   * create array of name of portfolio works
+   * @param {number} n - quantity of works in portfolio
+   * @returns {array}
+   */
+  function worksArray(n) {
+    const works = [];
+    for (let i = 0; i < n; i++) {
+      if (i < 9) {
+        works[i] = `work0${i + 1}`;
+      } else {
+        works[i] = `work${i + 1}`;
+      }
+    }
+    return works;
+  }
+
+  /**
+   * Function renderPortfolioWorks
+   * render portfolio works
+   */
+  function renderPortfolioWorks() {
+    let fragment = '';
+    const pictures = worksArray(12);
+    const shuffleWorks = shuffleArray(pictures);
+
+    worksContent.innerHTML = '';
+
+    shuffleWorks.forEach(picture => {
+      const el = workTemplate(picture);
+      fragment += el;
+    });
+
+    worksContent.insertAdjacentHTML('afterbegin', fragment);
+  }
+
+  // renderPortfolioWorks();
+  // event
+  portfolioNav.addEventListener('click', onTogglePortfolioButton);
+
+  // --- Portfolio Tab Switching --- //
+  const worksToggle = document.querySelector('.works-toggle');
+  const btnToggles = document.querySelectorAll('.btn-toggle');
 });
