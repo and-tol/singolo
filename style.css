@@ -479,6 +479,7 @@ a {
 
 .slider__content {
   width: calc(100% - 120px);
+  overflow: hidden;
 }
 
 .slider__content_b {
