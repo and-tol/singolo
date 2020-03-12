@@ -439,12 +439,19 @@ a {
 }
 
 .slider__nav {
-  cursor: pointer;
   width: 60px;
 }
 
 .slider__nav .arrow {
   cursor: pointer;
+}
+
+.cursor-none {
+  cursor: auto !important;
+}
+
+.cursor-none svg:hover {
+  fill: #f0d8d9 !important;
 }
 
 .slider__nav .arrow svg {
@@ -457,12 +464,12 @@ a {
   fill: #fff;
 }
 
-.arrow__left {
-  padding-left: 2px;
+.arrow__prev {
+  padding-right: 2px;
   padding-bottom: 4px;
 }
 
-.arrow__right {
+.arrow__next {
   transform: rotate(180deg);
   margin-top: -10px;
   padding-top: 6px;
@@ -481,9 +488,13 @@ a {
 
 /* --- SLIDE STYLE --- */
 .slide {
-  display: flex;
   justify-content: space-between;
   width: 100%;
+  display: none;
+}
+
+.show {
+  display: flex;
 }
 
 .toggle-screen {

@@ -57,4 +57,45 @@ document.addEventListener('DOMContentLoaded', () => {
       target.classList.toggle('toggle-screen');
     }
   });
+
+  // --- Slidershow --- //
+  // find elements
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const arrowNext = document.querySelector('.arrow__next');
+
+  // find/create content element NodeList
+  const slides = document.querySelectorAll('.slide');
+
+  // functions definitions
+  const slideShowToggle = () => {
+    slides[currentSlideIndex].classList.toggle('show');
+  };
+
+  let currentSlideIndex = 0;
+  slideShowToggle();
+
+  const onShowNextBtnClick = () => {
+    slideShowToggle();
+    currentSlideIndex++;
+    // для бесконечного слайдера
+    if (currentSlideIndex === slides.length) {
+      currentSlideIndex = 0;
+    }
+    slideShowToggle();
+  };
+
+  const onShowPrevBtnClick = () => {
+    slideShowToggle();
+    currentSlideIndex--;
+    // для бесконечного слайдера
+    if (currentSlideIndex < 0) {
+      currentSlideIndex = slides.length - 1;
+    }
+    slideShowToggle();
+  };
+
+  // subscribe to events
+  prevBtn.addEventListener('click', onShowPrevBtnClick);
+  nextBtn.addEventListener('click', onShowNextBtnClick);
 });
