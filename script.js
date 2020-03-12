@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // find elements
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
-  const arrowNext = document.querySelector('.arrow__next');
+  const sectionHeader = document.querySelector('.header');
 
   // find/create content element NodeList
   const slides = document.querySelectorAll('.slide');
@@ -83,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSlideIndex = 0;
     }
     slideShowToggle();
+
+    // изменение цвета бэкграунда
+    sectionHeader.classList.toggle('background_blue');
   };
 
   const onShowPrevBtnClick = () => {
@@ -93,6 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSlideIndex = slides.length - 1;
     }
     slideShowToggle();
+
+    // изменение цвета бэкграунда
+    sectionHeader.classList.toggle('background_blue');
   };
 
   // subscribe to events

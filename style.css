@@ -482,6 +482,13 @@ a {
   bottom: 48px;
 }
 
+.background_blue {
+  background-color: #648bf0 !important;
+  border-bottom-color: #577ad3 !important;
+  border-bottom-width: 6px;
+  height: 600px;
+}
+
 /* --- SLIDE STYLE --- */
 .slide {
   justify-content: center;
