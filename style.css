@@ -141,12 +141,14 @@ a {
 .logo {
   padding-top: 4px;
 }
-.logo a {
-  display: block;
-  font-size: 26px;
+.logo a h1 {
+  display: inline-block;
+  font-size: 25px;
+  letter-spacing: -0.03em;
   font-weight: bold;
   text-transform: uppercase;
   color: #ffffff;
+  margin-right: 0;
 }
 
 .logo__text,
@@ -160,6 +162,8 @@ a {
 
 .logo__sign {
   color: #f06c64;
+  letter-spacing: -0.03em;
+  font-size: 25px;
 }
 
 /* navigation */
@@ -482,7 +486,7 @@ a {
   bottom: 48px;
 }
 
-.background_blue {
+.js-background_blue {
   background-color: #648bf0 !important;
   border-bottom-color: #577ad3 !important;
   border-bottom-width: 6px;
@@ -564,6 +568,18 @@ a {
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
   right: 55px;
+}
+
+.js-slide-move_prev {
+  transform: translate(-100%);
+  transform-origin: 0% 50% 0;
+  transition: transform 1s ease;
+}
+
+.js-slide-move_next {
+  transform: translate(100%);
+  transform-origin: 100% 50% 0;
+  transition: transform 1s ease;
 }
 
 /* --- CARD --- */

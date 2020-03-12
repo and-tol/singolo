@@ -72,11 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
     slides[currentSlideIndex].classList.toggle('show');
   };
 
+  // section Header background color changing
+  const headerColorChange = () => {
+    sectionHeader.classList.toggle('js-background_blue');
+  };
+
   let currentSlideIndex = 0;
   slideShowToggle();
 
   const onShowNextBtnClick = () => {
     slideShowToggle();
+    // slides[currentSlideIndex].classList.toggle('js-slide-move_prev');
     currentSlideIndex++;
     // для бесконечного слайдера
     if (currentSlideIndex === slides.length) {
@@ -85,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideShowToggle();
 
     // изменение цвета бэкграунда
-    sectionHeader.classList.toggle('background_blue');
+    headerColorChange();
   };
 
   const onShowPrevBtnClick = () => {
@@ -98,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideShowToggle();
 
     // изменение цвета бэкграунда
-    sectionHeader.classList.toggle('background_blue');
+    headerColorChange();
   };
 
   // subscribe to events
