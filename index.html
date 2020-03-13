@@ -417,7 +417,7 @@
               mauris condimentum nibh.
             </p>
             <section class="communication">
-              <form class="form" action="#" method="POST">
+              <form class="form" action="#" name="contact-form" method="POST">
                 <input class="form__input" id="name" name="name" type="text" required placeholder="Name (Required)" />
                 <input
                   class="form__input"
@@ -435,7 +435,7 @@
                   placeholder="Describe your project in detail..."
                 ></textarea>
                 <div class="button-container">
-                  <button class="button form__submit" type="submit">submit</button>
+                  <button class="btn form__submit" id="submit-btn" type="submit">submit</button>
                 </div>
               </form>
               <div class="info">
@@ -498,6 +498,16 @@
         <!-- FOOTER SECTION END -->
       </main>
       <!-- MAIN CONTENT END -->
+
+      <!-- START MODAL MESSAGE BLOCK -->
+      <div class="message-block  hidden">
+        <div class="message">
+          <div class="message__content"></div>
+
+          <button class="btn btn-close" id="close-btn">OK</button>
+        </div>
+      </div>
+      <!-- END MODAL MESSAGE BLOCK -->
     </div>
     <!-- MAIN CONTAINER END -->
     <script src="script.js"></script>

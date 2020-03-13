@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   ('use strict');
 
-  // === Menu === //
+  // === MENU === //
   //--- Smooth scrolling with web API: scrollIntoView --- //
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     linksNav[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
   }
 
-  // --- Toggle menu --- //
+  // --- TOGGLE MENU --- //
   const nav = document.querySelector('.nav');
   // Loop through the nav-items and add the active class to the current/clicked nav-items
 
@@ -237,4 +237,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     onTogglePortfolioWork(event);
   });
+
+  // === FORM === //
+  const form = document.forms['contact-form'];
+  const submitBtn = document.querySelector('#submit-btn');
+  const closeBtn = document.querySelector('#close-btn');
+  const messageBlock = document.querySelector('.message-block');
+  const messageContent = document.querySelector('.message__content');
+
+  const sendMessage = event => {
+    event.preventDefault();
+
+    // Get inputs value
+    const nameValue = form.name.value;
+    const emailValue = form.email.value;
+    const subjectValue = form.subject.value;
+    const describeValue = form.describe.value;
+
+    // Remove class hidden
+    messageBlock.classList.remove('hidden');
+
+    // Set message elements
+    const messageTitle = document.createElement('h4');
+    messageTitle.classList.add('message__title');
+    messageTitle.textContent = 'Email sent';
+
+    // Message elements
+    const subject = document.createElement('p');
+    const describe = document.createElement('p');
+    const ok = document.createElement('p');
+    ok.classList.add('ok');
+    ok.textContent = 'ok';
+
+    let fragment = document.createDocumentFragment();
+
+    if (subjectValue === '') {
+      subject.textContent = 'No topic';
+    } else {
+      subject.innerHTML = `Subject: <span class="">${subjectValue}</span>`;
+    }
+    if (describeValue === '') {
+      describe.textContent = 'No describe';
+    } else {
+      describe.innerHTML = `Describe: <span class="">${describeValue}</span>`;
+    }
+
+    fragment.prepend(ok);
+    fragment.prepend(describe);
+    fragment.prepend(subject);
+
+    messageContent.prepend(fragment);
+
+    messageContent.prepend(messageTitle);
+  };
+
+  const closeMessageBlock = () => {
+    messageBlock.classList.add('hidden');
+    messageContent.innerHTML = '';
+
+    form.reset();
+  };
+
+  // Events
+  submitBtn.addEventListener('click', sendMessage);
+  closeBtn.addEventListener('click', closeMessageBlock);
 });

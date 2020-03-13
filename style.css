@@ -72,6 +72,7 @@ img {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
 }
 
 main {
@@ -114,6 +115,17 @@ p {
 
 a {
   text-decoration: none;
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
+  border-radius: 4px;
+  border-color: inherit;
+  border-width: 1px;
+  border-style: solid;
+  transition: all 0.3s ease-out;
 }
 
 .wrapper {
@@ -422,6 +434,62 @@ a {
   opacity: 0;
 }
 
+.message-block {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(45, 48, 58, 0.7);
+  z-index: 10;
+}
+
+.message-block.hidden {
+  display: none;
+}
+
+.message {
+  max-width: 500px;
+  min-height: 200px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #fff;
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message__title {
+  margin-bottom: 1rem;
+}
+
+.btn-close {
+  align-self: flex-end;
+  color: #f0d8d9;
+  line-height: normal;
+  background: #d6564f;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  padding: 9px 16px 7px;
+}
+.btn-close:hover, .btn-close:active {
+  color: #d6564f;
+  background-color: #fff;
+  border: 2px solid #d6564f;
+  transition: all 0.3s ease-out;
+}
+
+.ok {
+  text-transform: uppercase;
+  margin-top: 0.8rem;
+  font-family: LatoLatinWeb, Helvetica, sans-serif;
+}
+
 .btn-toggle {
   display: block;
   font-family: LatoLatinWeb, Helvetica, sans-serif;
@@ -696,7 +764,7 @@ a {
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease;
 }
 .form__input:-moz-placeholder {
   color: #f48c8f;
@@ -705,7 +773,7 @@ a {
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease;
 }
 .form__input::-moz-placeholder {
   color: #f48c8f;
@@ -714,7 +782,7 @@ a {
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease;
 }
 .form__input:-ms-input-placeholder {
   color: #f48c8f;
@@ -723,7 +791,11 @@ a {
   text-overflow: ellipsis;
   outline: none;
   opacity: 1;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease;
+}
+.form__input:focus {
+  background-color: white;
+  color: #666d89;
 }
 .form__input:focus::-webkit-input-placeholder {
   opacity: 0;
@@ -743,9 +815,14 @@ a {
   overflow: auto;
   height: 202px;
 }
+.form__textarea:focus {
+  background-color: white;
+  color: #666d89;
+}
 
 .form__submit {
   background: #d6564f;
+  border: none;
   border-radius: 5px;
   outline: none;
   padding: 12px 14px 10px;
@@ -756,6 +833,10 @@ a {
   text-align: center;
   color: #f0d8d9;
   text-transform: uppercase;
+}
+.form__submit:hover, .form__submit:active {
+  color: #d6564f;
+  background: #f0d8d9;
 }
 
 .form .button-container {
