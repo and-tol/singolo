@@ -113,7 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Portfolio === //
   // Portfolio works list
   const portfolioWorks = document.querySelectorAll('.work');
-  // console.log('portfolioWorks', portfolioWorks[0].childNodes[1].childNodes[1].src);
+  // Portfolio block with class work_border-inset
+  const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
+  const insetBorderBlock = document.querySelector('.work_border-inset');
   // Portfolio toggle button list
   const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
   // Portfolio navigation
@@ -121,7 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Portfolio works container
   const worksContent = document.querySelector('.works__content');
 
-  // Function
+  /**
+   * Function onTogglePortfolioButton
+   * Portfolio Tab Switching
+   */
   const onTogglePortfolioButton = event => {
     portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
 
@@ -131,8 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPortfolioWorks();
   };
 
-  // Shuffle Array
-  /** Function shuffleArray
+  /** Function shuffleArray. Shuffle Array
    * Randomize array element order in-place.
    * Using Durstenfeld shuffle algorithm.
    * @param {array} array
@@ -156,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function workTemplate(picture) {
     return `
     <figure class="work">
-      <a class="work__link" href>
+      <a class="work__link">
         <img class="work__img" src="./assets/img/${picture}.jpg" alt="${picture}" />
       </a>
     </figure>
@@ -165,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Function worksArray.
-   * create array of name of portfolio works
+   * Create array of name of portfolio works
    * @param {number} n - quantity of works in portfolio
    * @returns {array}
    */
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Function renderPortfolioWorks
-   * render portfolio works
+   * Render portfolio works
    */
   function renderPortfolioWorks() {
     let fragment = '';
@@ -200,11 +204,37 @@ document.addEventListener('DOMContentLoaded', () => {
     worksContent.insertAdjacentHTML('afterbegin', fragment);
   }
 
-  // renderPortfolioWorks();
-  // event
-  portfolioNav.addEventListener('click', onTogglePortfolioButton);
+  /**
+   * Function onTogglePortfolioButton
+   * Portfolio Works inset border Switching
+   */
+  const onTogglePortfolioWork = event => {
+    // create DOM element with attribute class
+    const borderBlock = document.createElement('div');
+    borderBlock.setAttribute('class', 'work_border-inset');
 
-  // --- Portfolio Tab Switching --- //
-  const worksToggle = document.querySelector('.works-toggle');
-  const btnToggles = document.querySelectorAll('.btn-toggle');
+    // Add inner border block
+    event.target.closest('.work').prepend(borderBlock);
+  };
+
+  /**
+   * Function clearBorderBlock
+   * Clear inner border block
+   */
+  function clearBorderBlock() {
+    const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
+    insetBorderBlocks.forEach(el => {
+      el.remove();
+    });
+  }
+
+  // Events
+  // Click on tab in Portfolio
+  portfolioNav.addEventListener('click', onTogglePortfolioButton);
+  worksContent.addEventListener('click', () => {
+    // Clear inner border block
+    clearBorderBlock();
+
+    onTogglePortfolioWork(event);
+  });
 });
