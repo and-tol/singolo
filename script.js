@@ -239,17 +239,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // === FORM === //
-  const form = document.forms[0];
+  const form = document.forms['contact-form'];
   const submitBtn = document.querySelector('#submit-btn');
   const closeBtn = document.querySelector('#close-btn');
   const messageBlock = document.querySelector('.message-block');
+  const messageContent = document.querySelector('.message__content');
 
   const sendMessage = event => {
     event.preventDefault();
+
+    // Get inputs value
+    const name = form.name.value;
+    const email = form.email.value;
+    const subject = form.subject.value;
+    const describe = form.describe.value;
+
+    // Remove hidden
+    messageBlock.classList.remove('hidden');
+
+    // Set massage elements
+    const messageTitle = document.createElement('h4');
+    messageTitle.classList.add('message__title');
+    messageTitle.textContent = 'Email sent';
+
+    const messageText = `
+    <p>Subject: <span class="" id="result">${subject}</span></p>
+    <p>Describe: <span class="" id="result">${describe}</span></p>
+    <p class="ok">OK</p>
+    `;
+
+    messageContent.insertAdjacentHTML('afterbegin', messageText);
+    messageContent.prepend(messageTitle);
   };
 
   const closeMessageBlock = () => {
     messageBlock.classList.add('hidden');
+    messageContent.innerHTML = '';
   };
 
   // Events
