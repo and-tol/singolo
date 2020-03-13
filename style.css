@@ -472,7 +472,7 @@ a {
   color: #f0d8d9;
   line-height: normal;
   background: #d6564f;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 5px;
   outline: none;
   padding: 9px 16px 7px;
@@ -793,6 +793,10 @@ a {
   opacity: 1;
   transition: opacity 300ms ease;
 }
+.form__input:focus {
+  background-color: white;
+  color: #666d89;
+}
 .form__input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
@@ -810,6 +814,10 @@ a {
   resize: none;
   overflow: auto;
   height: 202px;
+}
+.form__textarea:focus {
+  background-color: white;
+  color: #666d89;
 }
 
 .form__submit {

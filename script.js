@@ -249,26 +249,45 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     // Get inputs value
-    const name = form.name.value;
-    const email = form.email.value;
-    const subject = form.subject.value;
-    const describe = form.describe.value;
+    const nameValue = form.name.value;
+    const emailValue = form.email.value;
+    const subjectValue = form.subject.value;
+    const describeValue = form.describe.value;
 
-    // Remove hidden
+    // Remove class hidden
     messageBlock.classList.remove('hidden');
 
-    // Set massage elements
+    // Set message elements
     const messageTitle = document.createElement('h4');
     messageTitle.classList.add('message__title');
     messageTitle.textContent = 'Email sent';
 
-    const messageText = `
-    <p>Subject: <span class="" id="result">${subject}</span></p>
-    <p>Describe: <span class="" id="result">${describe}</span></p>
-    <p class="ok">OK</p>
-    `;
+    // Message elements
+    const subject = document.createElement('p');
+    const describe = document.createElement('p');
+    const ok = document.createElement('p');
+    ok.classList.add('ok');
+    ok.textContent = 'ok';
 
-    messageContent.insertAdjacentHTML('afterbegin', messageText);
+    let fragment = document.createDocumentFragment();
+
+    if (subjectValue === '') {
+      subject.textContent = 'No topic';
+    } else {
+      subject.innerHTML = `Subject: <span class="">${subjectValue}</span>`;
+    }
+    if (describeValue === '') {
+      describe.textContent = 'No describe';
+    } else {
+      describe.innerHTML = `Describe: <span class="">${describeValue}</span>`;
+    }
+
+    fragment.prepend(ok);
+    fragment.prepend(describe);
+    fragment.prepend(subject);
+
+    messageContent.prepend(fragment);
+
     messageContent.prepend(messageTitle);
   };
 
