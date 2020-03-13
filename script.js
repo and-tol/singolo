@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   ('use strict');
 
-  // === Menu === //
+  // === MENU === //
   //--- Smooth scrolling with web API: scrollIntoView --- //
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     linksNav[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
   }
 
-  // --- Toggle menu --- //
+  // --- TOGGLE MENU --- //
   const nav = document.querySelector('.nav');
   // Loop through the nav-items and add the active class to the current/clicked nav-items
 
@@ -237,4 +237,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     onTogglePortfolioWork(event);
   });
+
+  // === FORM === //
+  const form = document.forms[0];
+  const submitBtn = document.querySelector('#submit-btn');
+  const closeBtn = document.querySelector('#close-btn');
+  const messageBlock = document.querySelector('.message-block');
+
+  const sendMessage = event => {
+    event.preventDefault();
+  };
+
+  const closeMessageBlock = () => {
+    messageBlock.classList.add('hidden');
+  };
+
+  // Events
+  submitBtn.addEventListener('click', sendMessage);
+  closeBtn.addEventListener('click', closeMessageBlock);
 });

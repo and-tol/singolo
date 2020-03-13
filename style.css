@@ -454,6 +454,7 @@ a {
 .btn-close {
   align-self: flex-end;
   padding: 12px;
+  cursor: pointer;
 }
 
 .btn-toggle {
