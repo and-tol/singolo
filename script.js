@@ -113,7 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Portfolio === //
   // Portfolio works list
   const portfolioWorks = document.querySelectorAll('.work');
-  // console.log('portfolioWorks', portfolioWorks[0].childNodes[1].childNodes[1].src);
+  // Portfolio block with class work_border-inset
+  const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
+  const insetBorderBlock = document.querySelector('.work_border-inset');
   // Portfolio toggle button list
   const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
   // Portfolio navigation
@@ -202,7 +204,37 @@ document.addEventListener('DOMContentLoaded', () => {
     worksContent.insertAdjacentHTML('afterbegin', fragment);
   }
 
+  /**
+   * Function onTogglePortfolioButton
+   * Portfolio Works inset border Switching
+   */
+  const onTogglePortfolioWork = event => {
+    // create DOM element with attribute class
+    const borderBlock = document.createElement('div');
+    borderBlock.setAttribute('class', 'work_border-inset');
+
+    // Add inner border block
+    event.target.closest('.work').prepend(borderBlock);
+  };
+
+  /**
+   * Function clearBorderBlock
+   * Clear inner border block
+   */
+  function clearBorderBlock() {
+    const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
+    insetBorderBlocks.forEach(el => {
+      el.remove();
+    });
+  }
+
   // Events
   // Click on tab in Portfolio
   portfolioNav.addEventListener('click', onTogglePortfolioButton);
+  worksContent.addEventListener('click', () => {
+    // Clear inner border block
+    clearBorderBlock();
+
+    onTogglePortfolioWork(event);
+  });
 });
