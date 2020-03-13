@@ -294,6 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMessageBlock = () => {
     messageBlock.classList.add('hidden');
     messageContent.innerHTML = '';
+
+    form.reset();
   };
 
   // Events
