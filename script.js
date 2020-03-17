@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // === SLIDER === //
+  // === SLIDE picture screen === //
   // --- Phone screen reaction --- //
   const slide1 = document.querySelector('.slide-1');
 
@@ -58,22 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Slidershow --- //
+  // === SLIDESHOW === //
   // find elements
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
   const sectionHeader = document.querySelector('.header');
+  const arrowPrev = document.querySelector('.arrow__prev');
+  const arrowNext = document.querySelector('.arrow__next');
 
   // find/create content element NodeList
   const slides = document.querySelectorAll('.slide');
 
-  // functions definitions
   const slideShowToggle = () => {
     slides[currentSlideIndex].classList.toggle('js-show');
   };
-  // section Header background color changing
+  // section Header color changing
   const headerColorChange = () => {
+    // section Header background color changing
     sectionHeader.classList.toggle('js-background_blue');
+    // slideshow arrows color change
+    arrowPrev.classList.toggle('js-arrow_blue');
+    arrowNext.classList.toggle('js-arrow_blue');
   };
 
   let currentSlideIndex = 0;
@@ -89,8 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
     slideShowToggle();
     // slides[currentSlideIndex].classList.toggle('js-slide-move_next');
 
-    // изменение цвета бэкграунда
+    // Background color change
     headerColorChange();
+    // Arrow color change
   };
 
   const onShowPrevBtnClick = () => {
@@ -110,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', onShowPrevBtnClick);
   nextBtn.addEventListener('click', onShowNextBtnClick);
 
-  // === Portfolio === //
+  // === PORTFOLIO === //
   // Portfolio works list
   const portfolioWorks = document.querySelectorAll('.work');
   // Portfolio block with class work_border-inset
@@ -228,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Events
+  // PORTFOLIO. subscribe to  Events
   // Click on tab in Portfolio
   portfolioNav.addEventListener('click', onTogglePortfolioButton);
   worksContent.addEventListener('click', () => {
@@ -298,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.reset();
   };
 
-  // Events
+  // FORM. subscribe to  Events
   submitBtn.addEventListener('click', sendMessage);
   closeBtn.addEventListener('click', closeMessageBlock);
 });

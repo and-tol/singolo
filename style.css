@@ -534,8 +534,15 @@ a {
 }
 
 .slider__nav .arrow svg {
-  fill: #ca4549;
   transition: all 0.2s ease-in;
+}
+
+.js-arrow_red {
+  fill: #ca4549;
+}
+
+.js-arrow_blue {
+  fill: #577ad3 !important;
 }
 
 .slider__nav .arrow svg:hover {
