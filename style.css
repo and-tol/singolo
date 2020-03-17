@@ -828,7 +828,7 @@ a {
 }
 
 .form__submit {
-  background: #d6564f;
+  background: #fbc65f;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -838,7 +838,7 @@ a {
   font-weight: bold;
   font-size: 14px;
   text-align: center;
-  color: #f0d8d9;
+  color: #886a30;
   text-transform: uppercase;
 }
 .form__submit:hover, .form__submit:active {
