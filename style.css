@@ -318,8 +318,8 @@ a {
 
 .works__content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 187px);
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-template-rows: repeat(3, minmax(127px, 1fr));
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -381,6 +381,7 @@ a {
 .info {
   margin-left: 20px;
   flex-basis: 300px;
+  max-width: 300px;
 }
 
 .footer {
