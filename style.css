@@ -151,6 +151,13 @@ a {
     padding-left: 40px;
   }
 }
+@media screen and (max-width: 375px) {
+  .wrapper {
+    max-width: 375px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
 
 /* --- TOP STYLE --- */
 .top {
