@@ -192,9 +192,6 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 11px;
-  flex-basis: 0;
-  flex-grow: 1;
-  width: 100%;
 }
 .nav__item {
   display: block;
@@ -592,6 +589,7 @@ a {
 
 .slider__content {
   width: calc(100% - 120px);
+  height: auto;
   overflow: hidden;
 }
 
@@ -619,8 +617,6 @@ a {
 
 .slide-1__content,
 .slide-3__content {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -629,10 +625,16 @@ a {
   transition: opacity 0.5s ease-in;
 }
 
+.picture-a,
+.picture-b {
+  padding-top: 100%;
+}
+
 .picture-b__black-screen {
   transform: rotateZ(90deg);
-  right: 93px;
-  top: 61px;
+  width: 24%;
+  right: 170px;
+  top: 16px;
 }
 
 .picture-a__shadow,
@@ -642,23 +644,30 @@ a {
 
 .slider__content .picture-a {
   position: relative;
-  bottom: 247px;
-  left: 19px;
+  left: 12px;
+  top: 577px;
 }
 
 .picture-a .picture__layer,
 .picture-b .picture__layer {
   position: absolute;
+  height: auto;
 }
 
-.picture-a .picture__layer {
+.picture-a__screen {
+  top: 62px;
+  left: 5px;
+  width: 23.6%;
+  transition: opacity 0.5s ease-in;
+}
+
+.picture-a__shadow {
+  width: 29.2%;
   top: 0;
 }
 
-.picture-a .picture-a__screen {
-  top: 62px;
-  left: 11px;
-  transition: opacity 0.5s ease-in;
+.picture-a__case {
+  top: 0;
 }
 
 .slider__content .picture-b {
@@ -668,18 +677,23 @@ a {
 
 .picture-b__case {
   transform: rotateZ(90deg);
-  right: 80px;
+  top: -44px;
+  right: 158px;
+  width: 26.3%;
 }
 
 .picture-b__screen {
-  right: 21px;
-  top: 133px;
   transition: opacity 0.5s ease-in;
+  right: 98px;
+  top: 89px;
+  width: 41.5%;
 }
 
 .picture-b__shadow {
   transform: scale(-1, 1) rotateZ(90deg);
-  right: 55px;
+  width: 29.3%;
+  top: -43px;
+  right: 133px;
 }
 
 .js-show {
