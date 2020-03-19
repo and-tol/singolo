@@ -173,9 +173,10 @@ a {
 }
 
 .top .wrapper {
+  position: relative;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
 }
 @media screen and (max-width: 375px) {
@@ -187,22 +188,18 @@ a {
 
 .logo {
   padding-top: 4px;
-  flex-basis: 0;
-  flex-grow: 1;
-  width: 100%;
-}
-@media screen and (max-width: 768px) {
-  .logo {
-    margin-right: auto;
-  }
+  flex-grow: 0.5;
+  margin-left: auto;
 }
 @media screen and (max-width: 375px) {
   .logo {
-    margin-right: initial;
+    margin-left: initial;
     flex-basis: initial;
     flex-grow: initial;
-    width: auto;
   }
+}
+.logo a {
+  display: flex;
 }
 .logo a h1 {
   display: inline-block;
@@ -231,25 +228,31 @@ a {
 
 /* navigation */
 .nav {
-  display: flex;
-  justify-content: space-between;
+  text-align: right;
+  flex-grow: 0.5;
   margin-top: 11px;
+}
+@media screen and (max-width: 606px) {
+  .nav {
+    text-align: initial;
+  }
 }
 @media screen and (max-width: 768px) {
   .nav {
     margin-top: 5px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
   .nav {
     display: none;
   }
 }
 .nav__item {
-  display: block;
+  display: inline-block;
   font-size: 12px;
   font-weight: bold;
   color: #ffffff;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   margin-left: 25px;
   transition: all 0.3s ease-out;
@@ -267,6 +270,11 @@ a {
   right: -12px;
   color: #494e62;
 }
+@media screen and (max-width: 768px) {
+  .nav__item::after {
+    content: "";
+  }
+}
 
 .nav__item:last-child::after {
   display: none;
@@ -279,61 +287,6 @@ a {
 
 .nav__item_active {
   color: #f06c64;
-}
-
-.burger-menu::after, .burger-menu::before, .burger-menu {
-  width: 25px;
-  height: 2.4px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  transition: all 0.3s ease-out;
-}
-
-.burger-menu-container {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  left: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.burger-menu-container:hover .burger-menu {
-  background-color: #f06c64;
-  transition: all 0.3s ease-out;
-}
-.burger-menu-container:hover .burger-menu::after {
-  background-color: #f06c64;
-  transition: all 0.3s ease-out;
-}
-.burger-menu-container:hover .burger-menu::before {
-  background-color: #f06c64;
-  transition: all 0.3s ease-out;
-}
-
-.burger-menu {
-  top: 50%;
-  cursor: pointer;
-  position: relative;
-}
-.burger-menu::before {
-  position: absolute;
-  content: "";
-  display: block;
-  top: 7px;
-}
-.burger-menu::after {
-  position: absolute;
-  content: "";
-  display: block;
-  bottom: 7px;
-}
-.burger-menu:hover .burger-menu {
-  background-color: #f06c64;
-}
-
-.burger-menu_active {
-  transform: rotateZ(90deg);
-  transform-origin: center;
 }
 
 /* --- HEADER STYLE --- */
@@ -695,6 +648,121 @@ a {
   text-transform: uppercase;
   margin-top: 0.8rem;
   font-family: LatoLatinWeb, Helvetica, sans-serif;
+}
+
+.mobile-menu-container {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 120;
+  background: rgba(45, 48, 58, 0.6);
+  left: 0px;
+  top: 0px;
+}
+@media screen and (max-width: 375px) {
+  .mobile-menu-container {
+    display: block;
+  }
+}
+
+.burger-menu-container_active {
+  transform: rotateZ(90deg);
+  top: 33px;
+}
+
+.mobile-menu {
+  position: fixed;
+  width: 74%;
+  height: 100vh;
+  background: #2d303a;
+  box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-mobile {
+  position: relative;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-mobile__item + .nav-mobile__item {
+  margin-top: 27px;
+}
+
+.nav-mobile__item {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.burger-menu::after, .burger-menu::before, .burger-menu {
+  width: 25px;
+  height: 2.4px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: all 0.3s ease-out;
+}
+
+.burger-menu-container {
+  display: none;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 20px;
+  z-index: 13;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+@media screen and (max-width: 375px) {
+  .burger-menu-container {
+    display: block;
+  }
+}
+.burger-menu-container:hover .burger-menu {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+.burger-menu-container:hover .burger-menu::after {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+.burger-menu-container:hover .burger-menu::before {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+
+.burger-menu {
+  top: 50%;
+  cursor: pointer;
+  position: relative;
+}
+.burger-menu::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 7px;
+}
+.burger-menu::after {
+  position: absolute;
+  content: "";
+  display: block;
+  bottom: 7px;
+}
+.burger-menu:hover .burger-menu {
+  background-color: #f06c64;
+}
+
+.burger-menu_active {
+  transform: rotateZ(90deg);
+  transform-origin: center;
+}
+
+.close {
+  display: none;
+}
+
+.open {
+  display: block;
 }
 
 .btn-toggle {

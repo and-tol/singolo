@@ -307,4 +307,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // FORM. subscribe to  Events
   submitBtn.addEventListener('click', sendMessage);
   closeBtn.addEventListener('click', closeMessageBlock);
+
+  // ===  TOGGLE MOBILE MENU === //
+  const btnMobileMenu = document.querySelector('#btn-mob');
+  const btnMobileMenuAct = document.querySelector('#btn-mob-active');
+  const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+  const navMobile = document.querySelector('.nav-mobile');
+
+  const mobileMenuToggle = () => {
+    mobileMenuContainer.classList.toggle('close');
+  };
+
+  // Events TOGGLE MOBILE MENU
+  btnMobileMenu.addEventListener('click', mobileMenuToggle);
+  btnMobileMenuAct.addEventListener('click', mobileMenuToggle);
+  navMobile.addEventListener('click', mobileMenuToggle);
 });
