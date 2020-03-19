@@ -1181,7 +1181,7 @@ a {
   color: #886a30;
   text-transform: uppercase;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
   .form__submit {
     width: 100%;
   }
