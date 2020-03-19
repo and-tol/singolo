@@ -145,15 +145,15 @@ a {
 }
 
 .wrapper {
-  max-width: 940px;
+  max-width: 1020px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-right: auto;
   margin-left: auto;
 }
 @media screen and (max-width: 768px) {
   .wrapper {
     max-width: 768px;
-    padding-right: 40px;
-    padding-left: 40px;
   }
 }
 @media screen and (max-width: 375px) {
