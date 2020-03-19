@@ -178,6 +178,12 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 375px) {
+  .top .wrapper {
+    justify-content: center;
+    padding-left: 42px;
+  }
+}
 
 .logo {
   padding-top: 4px;
@@ -188,6 +194,14 @@ a {
 @media screen and (max-width: 768px) {
   .logo {
     margin-right: auto;
+  }
+}
+@media screen and (max-width: 375px) {
+  .logo {
+    margin-right: initial;
+    flex-basis: initial;
+    flex-grow: initial;
+    width: auto;
   }
 }
 .logo a h1 {
@@ -265,6 +279,61 @@ a {
 
 .nav__item_active {
   color: #f06c64;
+}
+
+.burger-menu::after, .burger-menu::before, .burger-menu {
+  width: 25px;
+  height: 2.4px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: all 0.3s ease-out;
+}
+
+.burger-menu-container {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.burger-menu-container:hover .burger-menu {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+.burger-menu-container:hover .burger-menu::after {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+.burger-menu-container:hover .burger-menu::before {
+  background-color: #f06c64;
+  transition: all 0.3s ease-out;
+}
+
+.burger-menu {
+  top: 50%;
+  cursor: pointer;
+  position: relative;
+}
+.burger-menu::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 7px;
+}
+.burger-menu::after {
+  position: absolute;
+  content: "";
+  display: block;
+  bottom: 7px;
+}
+.burger-menu:hover .burger-menu {
+  background-color: #f06c64;
+}
+
+.burger-menu_active {
+  transform: rotateZ(90deg);
+  transform-origin: center;
 }
 
 /* --- HEADER STYLE --- */
