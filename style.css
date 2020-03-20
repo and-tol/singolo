@@ -734,7 +734,6 @@ a {
 }
 
 .burger-menu {
-  top: 50%;
   cursor: pointer;
   position: relative;
 }
@@ -1213,6 +1212,7 @@ a {
   .info {
     margin-left: 0;
     margin-top: 32px;
+    flex-basis: inherit;
   }
 }
 
