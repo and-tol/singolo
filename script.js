@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
   const linksNav = document.querySelectorAll(`.nav__item`);
+  const nav = document.querySelector('.nav');
+  const navMobile = document.querySelector('.nav-mobile');
+  const linksNavDesk = document.querySelectorAll(`.nav-desk__item`);
+  const linksNavMob = document.querySelectorAll(`.nav-mobile__item`);
   // Get all Menu target with id & section tag
   const targetNav = document.querySelectorAll('section[id]');
 
@@ -20,28 +24,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  for (let i = 0; i < linksNav.length; i++) {
-    linksNav[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+  for (let i = 0; i < linksNavDesk.length; i++) {
+    linksNavDesk[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+  }
+  for (let i = 0; i < linksNavMob.length; i++) {
+    linksNavMob[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
   }
 
   // --- TOGGLE MENU --- //
-  const nav = document.querySelector('.nav');
+  // const nav = document.querySelector('.nav');
   // Loop through the nav-items and add the active class to the current/clicked nav-items
 
-  linksNav.forEach(element => {
-    element.addEventListener('click', () => {
-      const current = document.querySelector('.nav__item_active');
-      const currentIsActive = current.classList.contains('nav__item_active');
-      const elementIsActive = element.classList.contains('nav__item_active');
+  const onToggleMenuButton = event => {
+    linksNavDesk.forEach(el => el.classList.remove('nav__item_active'));
+    event.target.classList.add('nav__item_active');
+  };
 
-      if (currentIsActive === elementIsActive) {
-        return;
-      }
+  nav.addEventListener('click', onToggleMenuButton);
 
-      element.classList.add('nav__item_active');
-      current.classList.remove('nav__item_active');
-    });
-  });
+  // linksNavDesk.forEach(element => {
+  //   element.addEventListener('click', () => {
+  //     let actives = document.querySelectorAll('.nav__item_active');
+  //     const current = document.querySelector('.nav__item_active');
+  //     const currentIsActive = current.classList.contains('nav__item_active');
+  //     const elementIsActive = element.classList.contains('nav__item_active');
+
+  //     if (currentIsActive === elementIsActive) {
+  //       return;
+  //     }
+
+  //     current.classList.remove('nav__item_active');
+  //     element.classList.add('nav__item_active');
+
+  //   });
+  // });
 
   // === SLIDE picture screen === //
   // --- Phone screen reaction --- //
@@ -66,10 +82,183 @@ document.addEventListener('DOMContentLoaded', () => {
   const arrowPrev = document.querySelector('.arrow__prev');
   const arrowNext = document.querySelector('.arrow__next');
 
-  // find/create content element NodeList
+  // find/create content element NodeList. collection of slides
   const slides = document.querySelectorAll('.slide');
+  // Index active slide, first slide of collection slides
+  let currentSlide = 0;
+  // to delay animation / для задержки анимации
+  let isEnabled = true;
 
-  const slideShowToggle = () => {
+  function changeCurrentSlide(n) {
+    //to ensure continuous slide progression / чтобы обеспечить пепрерывную промотку слайдов
+    currentSlide = (n + slides.length) % slides.length;
+  }
+
+  function hideSlide(direction) {
+    isEnabled = false;
+    slides[currentSlide].classList.add(direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('active-slide', direction);
+    });
+  }
+  function showSlide(direction) {
+    slides[currentSlide].classList.add('next', direction);
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('next', direction);
+      this.classList.add('active-slide');
+      isEnabled = true;
+    });
+  }
+  function nextSlide(n) {
+    hideSlide('to-left');
+    changeCurrentSlide(n + 1);
+    showSlide('from-right');
+  }
+  function previousSlide(n) {
+    hideSlide('to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('from-left');
+  }
+
+  function onShowPrevBtnClick() {
+    // if simple slider
+    // changeCurrentSlide(currentSlide - 1);
+
+    if (isEnabled) {
+      previousSlide(currentSlide);
+    }
+  }
+  function onShowNextBtnClick() {
+    // if simple slider
+    // changeCurrentSlide(currentSlide - 1);
+
+    if (isEnabled) {
+      nextSlide(currentSlide);
+    }
+  }
+
+  // Events Slideshow
+  prevBtn.addEventListener('click', function() {
+    if (isEnabled) {
+      previousSlide(currentSlide);
+    }
+  });
+  nextBtn.addEventListener('click', function() {
+    if (isEnabled) {
+      nextSlide(currentSlide);
+    }
+  });
+
+  // == Swipe slide of slideshow == //
+  const swipedetect = el => {
+    let surface = el;
+    let startX = 0;
+    let startY = 0;
+    // прошедшая дистанция
+    let distX = 0;
+    let distY = 0;
+    let dist = 0;
+    // time
+    let startTime = 0;
+    // время прошедшее до конца
+    let elapsedTime = 0;
+
+    // расстояние, которое считается свайпом
+    let threshold = 150;
+    // высота, которое считается свайпом
+    let restraint = 100;
+    let allowedTime = 300;
+
+    // Events for mouse
+    surface.addEventListener('mousedown', function(event) {
+      startX = event.pageX;
+      startY = event.pageY;
+      startTime = new Date().getTime();
+
+      event.preventDefault();
+    });
+    surface.addEventListener('mouseup', function(event) {
+      distX = event.pageX - startX;
+      distY = event.pageY - startY;
+      elapsedTime = new Date().getTime() - startTime;
+
+      if (elapsedTime <= allowedTime) {
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
+          if (distX > 0) {
+            if (isEnabled) {
+              previousSlide(currentSlide);
+            }
+          } else {
+            if (isEnabled) {
+              nextSlide(currentSlide);
+            }
+          }
+        }
+      }
+
+      event.preventDefault();
+    });
+
+    // Events for touch
+    surface.addEventListener('touchstart', function(event) {
+      // для срабатывание стрелок
+      console.log(event.target);
+      if (
+        event.target.classList.contains('slider__nav') ||
+        event.target.classList.contains('arrow') ||
+        event.target.classList.contains('arrow-svg')
+      ) {
+        if (event.target.classList.contains('prev') || event.target.classList.contains('arrow-prev')) {
+          if (isEnabled) {
+            previousSlide(currentSlide);
+          }
+        } else if (event.target.classList.contains('next') || event.target.classList.contains('arrow-next')) {
+          if (isEnabled) {
+            nextSlide(currentSlide);
+          }
+        }
+      }
+
+      let touchObj = event.changedTouches[0];
+      startX = touchObj.pageX;
+      startY = touchObj.pageY;
+      startTime = new Date().getTime();
+
+      event.preventDefault();
+    });
+    surface.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+    });
+    surface.addEventListener('touchend', function(event) {
+      let touchObj = event.changedTouches[0];
+      distX = touchObj.pageX - startX;
+      distY = touchObj.pageY - startY;
+      elapsedTime = new Date().getTime() - startTime;
+
+      if (elapsedTime <= allowedTime) {
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
+          if (distX > 0) {
+            if (isEnabled) {
+              previousSlide(currentSlide);
+            }
+          } else {
+            if (isEnabled) {
+              nextSlide(currentSlide);
+            }
+          }
+        }
+      }
+
+      event.preventDefault();
+    });
+  };
+
+  const slider = document.querySelector('.slider');
+
+  swipedetect(slider);
+
+  // -- old slider -- //
+  /*   const slideShowToggle = () => {
     slides[currentSlideIndex].classList.toggle('js-show');
   };
   // section Header color changing
@@ -110,11 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // изменение цвета бэкграунда
     headerColorChange();
-  };
+  }; */
 
   // subscribe to events
-  prevBtn.addEventListener('click', onShowPrevBtnClick);
-  nextBtn.addEventListener('click', onShowNextBtnClick);
+  // prevBtn.addEventListener('click', onShowPrevBtnClick);
+  // nextBtn.addEventListener('click', onShowNextBtnClick);
 
   // === PORTFOLIO === //
   // Portfolio works list
@@ -312,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnMobileMenu = document.querySelector('#btn-mob');
   const btnMobileMenuAct = document.querySelector('#btn-mob-active');
   const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-  const navMobile = document.querySelector('.nav-mobile');
+  // смотри выше
 
   const mobileMenuToggle = () => {
     mobileMenuContainer.classList.toggle('close');
