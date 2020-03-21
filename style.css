@@ -296,7 +296,18 @@ a {
   border-bottom-color: #ea676b;
   border-bottom-width: 6px;
 }
+@media (max-width: 768px) {
+  .header {
+    max-height: 452px;
+  }
+}
 
+@media (max-width: 768px) {
+  .section.header {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
 .header .wrapper {
   height: 100%;
 }
@@ -447,6 +458,11 @@ a {
   display: none;
 }
 
+@media screen and (max-width: 375px) {
+  .work:nth-child(n+9) {
+    display: none;
+  }
+}
 .work__img {
   object-fit: cover;
   width: 100%;
@@ -798,8 +814,14 @@ a {
 }
 
 .slider__nav {
+  cursor: pointer;
   width: 60px;
   z-index: 10;
+}
+@media screen and (max-width: 375px) {
+  .slider__nav {
+    width: 30px;
+  }
 }
 
 .slider__nav .arrow {
@@ -840,6 +862,7 @@ a {
   transform: rotate(180deg);
   margin-top: -10px;
   padding-top: 6px;
+  margin-left: auto;
 }
 
 .slider__content {
@@ -847,6 +870,11 @@ a {
   height: auto;
   overflow: hidden;
   max-height: 600px;
+}
+@media (max-width: 768px) {
+  .slider__content {
+    max-height: 452px;
+  }
 }
 
 .js-background_blue {
@@ -870,11 +898,18 @@ a {
 
 /* --- SLIDE STYLE --- */
 .slide {
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-height: 600px;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .slide {
+    max-height: 452px;
+  }
 }
 
 .slide-1__content,
@@ -882,6 +917,12 @@ a {
   position: relative;
   width: 100%;
   max-height: 600px;
+}
+@media (max-width: 768px) {
+  .slide-1__content,
+.slide-3__content {
+    max-height: 452px;
+  }
 }
 
 .toggle-screen {
@@ -965,6 +1006,50 @@ a {
   transform: translate(100%);
   transform-origin: 100% 50% 0;
   transition: transform 1s ease;
+}
+
+.slide {
+  animation: 0.5s ease-in-out;
+}
+
+.to-left {
+  animation-name: left;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+.active-slide,
+.next {
+  display: block;
+  display: flex;
 }
 
 /* --- CARD --- */
