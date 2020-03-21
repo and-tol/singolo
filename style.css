@@ -338,6 +338,11 @@ a {
     row-gap: 20px;
   }
 }
+@media screen and (max-width: 375px) {
+  .services__container {
+    display: block;
+  }
+}
 
 .service-all {
   margin-top: 45px;
@@ -352,6 +357,11 @@ a {
   display: flex;
 }
 
+@media screen and (max-width: 375px) {
+  .service + .service {
+    margin-top: 20px;
+  }
+}
 .service__content h3 {
   font-family: LatoLatinWebBlack, Helvetica, sans-serif;
   font-size: 1rem;
@@ -417,6 +427,12 @@ a {
   color: #767e9e;
   margin-right: 10px;
 }
+@media (max-width: 375px) {
+  .works__btn-toggle {
+    line-height: 100% !important;
+    padding: 5px 8px !important;
+  }
+}
 .works__btn-toggle:hover {
   border-color: #c5c5c5;
   color: #c5c5c5;
@@ -441,8 +457,8 @@ a {
 }
 @media screen and (max-width: 375px) {
   .works__content {
-    grid-template-columns: repeat(2, minmax(127px, 1fr));
-    grid-template-rows: repeat(3, minmax(127px, 1fr));
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+    grid-template-rows: repeat(3, minmax(90px, 1fr));
     column-gap: 14px;
     row-gap: 14px;
   }
@@ -818,7 +834,7 @@ a {
   width: 60px;
   z-index: 10;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 768px) {
   .slider__nav {
     width: 30px;
   }
@@ -874,6 +890,7 @@ a {
 @media (max-width: 768px) {
   .slider__content {
     max-height: 452px;
+    width: calc(100% - 60px);
   }
 }
 
@@ -887,7 +904,7 @@ a {
 .slider__content_b {
   position: relative;
   right: -311px;
-  bottom: 355px;
+  top: -400px;
 }
 
 .slider__content_a {
@@ -1052,6 +1069,49 @@ a {
   display: flex;
 }
 
+@media (max-width: 768px) {
+  .picture-a__shadow,
+.picture-b__shadow {
+    width: 180px;
+  }
+
+  .picture-a__case,
+.picture-b__case {
+    width: 163px;
+  }
+
+  .picture-a__screen,
+.picture-a__black-screen,
+.picture-b__screen,
+.picture-b__black-screen {
+    width: 143px;
+  }
+
+  .slider__content .picture-b {
+    bottom: 40px;
+  }
+
+  .picture-b__shadow {
+    top: 0;
+    left: 0;
+  }
+
+  .picture-b__case {
+    top: 0;
+    left: 0;
+  }
+
+  .picture-b__screen {
+    top: 104px;
+    left: -52px;
+    width: 248px;
+  }
+
+  .picture-b__black-screen {
+    top: 49px;
+    left: 0;
+  }
+}
 /* --- CARD --- */
 .card__img {
   width: 100%;
