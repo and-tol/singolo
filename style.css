@@ -166,6 +166,9 @@ a {
 
 /* --- TOP STYLE --- */
 .top {
+  z-index: 12;
+  width: 100%;
+  top: 0;
   height: 89px;
   box-sizing: content-box;
   background-color: #2d303a;

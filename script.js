@@ -18,8 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Element} target
    */
   const handleLinkNavClick = target => {
+    console.log('target', target);
+    console.dir('target', target);
     target.scrollIntoView({
       block: 'start',
+      inline: 'start',
       behavior: 'smooth',
     });
   };
