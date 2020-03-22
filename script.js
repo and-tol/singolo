@@ -141,11 +141,15 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', function() {
     if (isEnabled) {
       previousSlide(currentSlide);
+      // Background color change
+      headerColorChange();
     }
   });
   nextBtn.addEventListener('click', function() {
     if (isEnabled) {
       nextSlide(currentSlide);
+      // Background color change
+      headerColorChange();
     }
   });
 
@@ -257,17 +261,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   swipedetect(slider);
 
-  // -- old slider -- //
-  /*   const slideShowToggle = () => {
-    slides[currentSlideIndex].classList.toggle('js-show');
-  };
   // section Header color changing
-  const headerColorChange = () => {
+  function headerColorChange() {
     // section Header background color changing
     sectionHeader.classList.toggle('js-background_blue');
     // slideshow arrows color change
     arrowPrev.classList.toggle('js-arrow_blue');
     arrowNext.classList.toggle('js-arrow_blue');
+  }
+
+  // -- old slider -- //
+  /*   const slideShowToggle = () => {
+    slides[currentSlideIndex].classList.toggle('js-show');
   };
 
   let currentSlideIndex = 0;
