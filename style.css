@@ -340,19 +340,14 @@ a {
 }
 @media screen and (max-width: 768px) {
   .services__container {
-    grid-template-columns: repeat(2, 300px);
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
     row-gap: 55px;
-    column-gap: 53px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .services__container {
-    grid-template-columns: minmax(300px, 1fr);
-    row-gap: 20px;
   }
 }
 @media screen and (max-width: 375px) {
   .services__container {
+    grid-template-columns: minmax(300px, 1fr);
+    row-gap: 20px;
     display: block;
   }
 }
