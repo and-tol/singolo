@@ -273,52 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     arrowNext.classList.toggle('js-arrow_blue');
   }
 
-  // -- old slider -- //
-  /*   const slideShowToggle = () => {
-    slides[currentSlideIndex].classList.toggle('js-show');
-  };
-
-  let currentSlideIndex = 0;
-  slideShowToggle();
-
-  const onShowNextBtnClick = () => {
-    slideShowToggle();
-    currentSlideIndex++;
-    // для бесконечного слайдера
-    if (currentSlideIndex === slides.length) {
-      currentSlideIndex = 0;
-    }
-    slideShowToggle();
-    // slides[currentSlideIndex].classList.toggle('js-slide-move_next');
-
-    // Background color change
-    headerColorChange();
-    // Arrow color change
-  };
-
-  const onShowPrevBtnClick = () => {
-    slideShowToggle();
-    currentSlideIndex--;
-    // для бесконечного слайдера
-    if (currentSlideIndex < 0) {
-      currentSlideIndex = slides.length - 1;
-    }
-    slideShowToggle();
-
-    // изменение цвета бэкграунда
-    headerColorChange();
-  }; */
-
-  // subscribe to events
-  // prevBtn.addEventListener('click', onShowPrevBtnClick);
-  // nextBtn.addEventListener('click', onShowNextBtnClick);
-
   // === PORTFOLIO === //
-  // Portfolio works list
-  const portfolioWorks = document.querySelectorAll('.work');
-  // Portfolio block with class work_border-inset
-  const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
-  const insetBorderBlock = document.querySelector('.work_border-inset');
   // Portfolio toggle button list
   const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
   // Portfolio navigation
@@ -457,9 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const subjectValue = form.subject.value;
     const describeValue = form.describe.value;
 
-    // Remove class hidden
-    messageBlock.classList.remove('hidden');
-
     // Set message elements
     const messageTitle = document.createElement('h4');
     messageTitle.classList.add('message__title');
@@ -492,6 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
     messageContent.prepend(fragment);
 
     messageContent.prepend(messageTitle);
+
+    // Remove class hidden
+    messageBlock.classList.remove('hidden');
   };
 
   const closeMessageBlock = () => {
@@ -502,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // FORM. subscribe to  Events
-  submitBtn.addEventListener('click', sendMessage);
+  submitBtn.addEventListener('submit', sendMessage);
   closeBtn.addEventListener('click', closeMessageBlock);
 
   // ===  TOGGLE MOBILE MENU === //
