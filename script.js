@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
   //--- Smooth scrolling with web API: scrollIntoView --- //
   // const linkNav = document.querySelectorAll(`[href^='#']`);
   // Get all Menu items with class="nav__item" inside nav block
-  const linksNav = document.querySelectorAll(`.nav__item`);
   const nav = document.querySelector('.nav');
   const navMobile = document.querySelector('.nav-mobile');
   const linksNavDesk = document.querySelectorAll(`.nav-desk__item`);
-  const linksNavMob = document.querySelectorAll(`.nav-mobile__item`);
+  const linksNavMob = document.querySelectorAll(
+    `.nav-mobile__item`
+  );
   // Get all Menu target with id & section tag
   const targetNav = document.querySelectorAll('section[id]');
 
   /**
    * Function handleLinkNavClick. Implement a smooth transition by clicking on a menu item to the target block
+   * @callback requestCallback
    * @param {Element} target
    */
   const handleLinkNavClick = target => {
-    console.log('target', target);
-    console.dir('target', target);
     target.scrollIntoView({
       block: 'start',
       inline: 'start',
@@ -28,39 +28,45 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   for (let i = 0; i < linksNavDesk.length; i++) {
-    linksNavDesk[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+    linksNavDesk[i].addEventListener('click', () =>
+      handleLinkNavClick(targetNav[i])
+    );
   }
   for (let i = 0; i < linksNavMob.length; i++) {
-    linksNavMob[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+    linksNavMob[i].addEventListener('click', () =>
+      handleLinkNavClick(targetNav[i])
+    );
   }
 
   // --- TOGGLE MENU --- //
   // const nav = document.querySelector('.nav');
   // Loop through the nav-items and add the active class to the current/clicked nav-items
-
+  /**
+   * Function of switching menu items and transition to the selected section
+   * @callback
+   * @param {event} event
+   */
   const onToggleMenuButton = event => {
-    linksNavDesk.forEach(el => el.classList.remove('nav__item_active'));
+    linksNavDesk.forEach(el =>
+      el.classList.remove('nav__item_active')
+    );
+    event.target.classList.add('nav__item_active');
+  };
+
+  /**
+   * Function of switching mobile menu items and transition to the selected section
+   * @callback
+   * @param {event} event
+   */
+  const onToggleMobileMenuButton = event => {
+    linksNavMob.forEach(el =>
+      el.classList.remove('nav__item_active')
+    );
     event.target.classList.add('nav__item_active');
   };
 
   nav.addEventListener('click', onToggleMenuButton);
-
-  // linksNavDesk.forEach(element => {
-  //   element.addEventListener('click', () => {
-  //     let actives = document.querySelectorAll('.nav__item_active');
-  //     const current = document.querySelector('.nav__item_active');
-  //     const currentIsActive = current.classList.contains('nav__item_active');
-  //     const elementIsActive = element.classList.contains('nav__item_active');
-
-  //     if (currentIsActive === elementIsActive) {
-  //       return;
-  //     }
-
-  //     current.classList.remove('nav__item_active');
-  //     element.classList.add('nav__item_active');
-
-  //   });
-  // });
+  navMobile.addEventListener('click', onToggleMobileMenuButton);
 
   // === SLIDE picture screen === //
   // --- Phone screen reaction --- //
@@ -100,17 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideSlide(direction) {
     isEnabled = false;
     slides[currentSlide].classList.add(direction);
-    slides[currentSlide].addEventListener('animationend', function() {
-      this.classList.remove('active-slide', direction);
-    });
+    slides[currentSlide].addEventListener(
+      'animationend',
+      function () {
+        this.classList.remove('active-slide', direction);
+      }
+    );
   }
   function showSlide(direction) {
     slides[currentSlide].classList.add('next', direction);
-    slides[currentSlide].addEventListener('animationend', function() {
-      this.classList.remove('next', direction);
-      this.classList.add('active-slide');
-      isEnabled = true;
-    });
+    slides[currentSlide].addEventListener(
+      'animationend',
+      function () {
+        this.classList.remove('next', direction);
+        this.classList.add('active-slide');
+        isEnabled = true;
+      }
+    );
   }
   function nextSlide(n) {
     hideSlide('to-left');
@@ -123,32 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide('from-left');
   }
 
-  function onShowPrevBtnClick() {
-    // if simple slider
-    // changeCurrentSlide(currentSlide - 1);
-
-    if (isEnabled) {
-      previousSlide(currentSlide);
-    }
-  }
-  function onShowNextBtnClick() {
-    // if simple slider
-    // changeCurrentSlide(currentSlide - 1);
-
-    if (isEnabled) {
-      nextSlide(currentSlide);
-    }
-  }
-
   // Events Slideshow
-  prevBtn.addEventListener('click', function() {
+  prevBtn.addEventListener('click', function () {
     if (isEnabled) {
       previousSlide(currentSlide);
       // Background color change
       headerColorChange();
     }
   });
-  nextBtn.addEventListener('click', function() {
+  nextBtn.addEventListener('click', function () {
     if (isEnabled) {
       nextSlide(currentSlide);
       // Background color change
@@ -157,6 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // == Swipe slide of slideshow == //
+  /**
+   *  Function realise sweping slides of the slideshow
+   * @param {element} el - element of the slideshow
+   */
   const swipedetect = el => {
     let surface = el;
     let startX = 0;
@@ -177,20 +176,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let allowedTime = 300;
 
     // Events for mouse
-    surface.addEventListener('mousedown', function(event) {
+    surface.addEventListener('mousedown', function (event) {
       startX = event.pageX;
       startY = event.pageY;
       startTime = new Date().getTime();
 
       event.preventDefault();
     });
-    surface.addEventListener('mouseup', function(event) {
+
+    surface.addEventListener('mouseup', function (event) {
       distX = event.pageX - startX;
       distY = event.pageY - startY;
       elapsedTime = new Date().getTime() - startTime;
 
       if (elapsedTime <= allowedTime) {
-        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
+        if (
+          Math.abs(distX) >= threshold &&
+          Math.abs(distY) <= threshold
+        ) {
           if (distX > 0) {
             if (isEnabled) {
               previousSlide(currentSlide);
@@ -207,19 +210,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Events for touch
-    surface.addEventListener('touchstart', function(event) {
+    surface.addEventListener('touchstart', function (event) {
       // для срабатывание стрелок
-      console.log(event.target);
       if (
         event.target.classList.contains('slider__nav') ||
         event.target.classList.contains('arrow') ||
         event.target.classList.contains('arrow-svg')
       ) {
-        if (event.target.classList.contains('prev') || event.target.classList.contains('arrow-prev')) {
+        if (
+          event.target.classList.contains('prev') ||
+          event.target.classList.contains('arrow-prev')
+        ) {
           if (isEnabled) {
             previousSlide(currentSlide);
           }
-        } else if (event.target.classList.contains('next') || event.target.classList.contains('arrow-next')) {
+        } else if (
+          event.target.classList.contains('next') ||
+          event.target.classList.contains('arrow-next')
+        ) {
           if (isEnabled) {
             nextSlide(currentSlide);
           }
@@ -233,17 +241,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       event.preventDefault();
     });
-    surface.addEventListener('touchmove', function(event) {
+
+    surface.addEventListener('touchmove', function (event) {
       event.preventDefault();
     });
-    surface.addEventListener('touchend', function(event) {
+
+    surface.addEventListener('touchend', function (event) {
       let touchObj = event.changedTouches[0];
       distX = touchObj.pageX - startX;
       distY = touchObj.pageY - startY;
       elapsedTime = new Date().getTime() - startTime;
 
       if (elapsedTime <= allowedTime) {
-        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
+        if (
+          Math.abs(distX) >= threshold &&
+          Math.abs(distY) <= threshold
+        ) {
           if (distX > 0) {
             if (isEnabled) {
               previousSlide(currentSlide);
@@ -264,7 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   swipedetect(slider);
 
-  // section Header color changing
+  /**
+   * Function changing color the section Header
+   */
   function headerColorChange() {
     // section Header background color changing
     sectionHeader.classList.toggle('js-background_blue');
@@ -275,7 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === PORTFOLIO === //
   // Portfolio toggle button list
-  const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
+  const portfolioButtons = document.querySelectorAll(
+    '.works__btn-toggle'
+  );
   // Portfolio navigation
   const portfolioNav = document.querySelector('.works-toggle');
   // Portfolio works container
@@ -284,13 +301,16 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Function onTogglePortfolioButton
    * Portfolio Tab Switching
+   * @callback
+   * @param {Event} event
    */
   const onTogglePortfolioButton = event => {
-    portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
+    portfolioButtons.forEach(el =>
+      el.classList.remove('works__btn-toggle_active')
+    );
 
     event.target.classList.add('works__btn-toggle_active');
 
-    // shuffleArray(portfolioWorks);
     renderPortfolioWorks();
   };
 
@@ -298,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Randomize array element order in-place.
    * Using Durstenfeld shuffle algorithm.
    * @param {array} array
+   * @returns {array}
    */
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -365,6 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Function onTogglePortfolioButton
    * Portfolio Works inset border Switching
+   * @callback
+   * @param {event} event
    */
   const onTogglePortfolioWork = event => {
     // create DOM element with attribute class
@@ -380,7 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
    * Clear inner border block
    */
   function clearBorderBlock() {
-    const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
+    const insetBorderBlocks = document.querySelectorAll(
+      '.work_border-inset'
+    );
     insetBorderBlocks.forEach(el => {
       el.remove();
     });
@@ -401,8 +426,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.querySelector('#submit-btn');
   const closeBtn = document.querySelector('#close-btn');
   const messageBlock = document.querySelector('.message-block');
-  const messageContent = document.querySelector('.message__content');
+  const messageContent = document.querySelector(
+    '.message__content'
+  );
 
+  /**
+   * Function forming a modal form submission window
+   * @callback
+   * @param {event} event
+   */
   const sendMessage = event => {
     event.preventDefault();
 
@@ -449,6 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
     messageBlock.classList.remove('hidden');
   };
 
+  /**
+   * Function closing the modal window and cleaning the form
+   * @callback
+   */
   const closeMessageBlock = () => {
     messageBlock.classList.add('hidden');
     messageContent.innerHTML = '';
@@ -462,10 +498,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===  TOGGLE MOBILE MENU === //
   const btnMobileMenu = document.querySelector('#btn-mob');
-  const btnMobileMenuAct = document.querySelector('#btn-mob-active');
-  const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+  const btnMobileMenuAct = document.querySelector(
+    '#btn-mob-active'
+  );
+  const mobileMenuContainer = document.querySelector(
+    '.mobile-menu-container'
+  );
   // смотри выше
 
+  /**
+   * function switching the mobile menu visibility
+   */
   const mobileMenuToggle = () => {
     mobileMenuContainer.classList.toggle('close');
   };

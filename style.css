@@ -166,6 +166,7 @@ a {
 
 /* --- TOP STYLE --- */
 .top {
+  FONT-VARIANT: JIS78;
   z-index: 12;
   width: 100%;
   top: 0;
