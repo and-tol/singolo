@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
   const navMobile = document.querySelector('.nav-mobile');
   const linksNavDesk = document.querySelectorAll(`.nav-desk__item`);
-  const linksNavMob = document.querySelectorAll(
-    `.nav-mobile__item`
-  );
+  const linksNavMob = document.querySelectorAll(`.nav-mobile__item`);
   // Get all Menu target with id & section tag
   const targetNav = document.querySelectorAll('section[id]');
 
@@ -28,14 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   for (let i = 0; i < linksNavDesk.length; i++) {
-    linksNavDesk[i].addEventListener('click', () =>
-      handleLinkNavClick(targetNav[i])
-    );
+    linksNavDesk[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
   }
   for (let i = 0; i < linksNavMob.length; i++) {
-    linksNavMob[i].addEventListener('click', () =>
-      handleLinkNavClick(targetNav[i])
-    );
+    linksNavMob[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
   }
 
   // --- TOGGLE MENU --- //
@@ -47,9 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {event} event
    */
   const onToggleMenuButton = event => {
-    linksNavDesk.forEach(el =>
-      el.classList.remove('nav__item_active')
-    );
+    linksNavDesk.forEach(el => el.classList.remove('nav__item_active'));
     event.target.classList.add('nav__item_active');
   };
 
@@ -59,9 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {event} event
    */
   const onToggleMobileMenuButton = event => {
-    linksNavMob.forEach(el =>
-      el.classList.remove('nav__item_active')
-    );
+    linksNavMob.forEach(el => el.classList.remove('nav__item_active'));
     event.target.classList.add('nav__item_active');
   };
 
@@ -85,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === SLIDESHOW === //
   // find elements
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.arrow-prev');
+  const nextBtn = document.querySelector('.arrow-next');
   const sectionHeader = document.querySelector('.header');
   const arrowPrev = document.querySelector('.arrow__prev');
   const arrowNext = document.querySelector('.arrow__next');
@@ -106,23 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideSlide(direction) {
     isEnabled = false;
     slides[currentSlide].classList.add(direction);
-    slides[currentSlide].addEventListener(
-      'animationend',
-      function () {
-        this.classList.remove('active-slide', direction);
-      }
-    );
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('active-slide', direction);
+    });
   }
   function showSlide(direction) {
     slides[currentSlide].classList.add('next', direction);
-    slides[currentSlide].addEventListener(
-      'animationend',
-      function () {
-        this.classList.remove('next', direction);
-        this.classList.add('active-slide');
-        isEnabled = true;
-      }
-    );
+    slides[currentSlide].addEventListener('animationend', function() {
+      this.classList.remove('next', direction);
+      this.classList.add('active-slide');
+      isEnabled = true;
+    });
   }
   function nextSlide(n) {
     hideSlide('to-left');
@@ -136,14 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Events Slideshow
-  prevBtn.addEventListener('click', function () {
+  prevBtn.addEventListener('click', function() {
     if (isEnabled) {
       previousSlide(currentSlide);
       // Background color change
       headerColorChange();
     }
   });
-  nextBtn.addEventListener('click', function () {
+  nextBtn.addEventListener('click', function() {
     if (isEnabled) {
       nextSlide(currentSlide);
       // Background color change
@@ -176,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let allowedTime = 300;
 
     // Events for mouse
-    surface.addEventListener('mousedown', function (event) {
+    surface.addEventListener('mousedown', function(event) {
       startX = event.pageX;
       startY = event.pageY;
       startTime = new Date().getTime();
@@ -184,16 +168,13 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     });
 
-    surface.addEventListener('mouseup', function (event) {
+    surface.addEventListener('mouseup', function(event) {
       distX = event.pageX - startX;
       distY = event.pageY - startY;
       elapsedTime = new Date().getTime() - startTime;
 
       if (elapsedTime <= allowedTime) {
-        if (
-          Math.abs(distX) >= threshold &&
-          Math.abs(distY) <= threshold
-        ) {
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
           if (distX > 0) {
             if (isEnabled) {
               previousSlide(currentSlide);
@@ -210,24 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Events for touch
-    surface.addEventListener('touchstart', function (event) {
+    surface.addEventListener('touchstart', function(event) {
       // для срабатывание стрелок
       if (
         event.target.classList.contains('slider__nav') ||
         event.target.classList.contains('arrow') ||
         event.target.classList.contains('arrow-svg')
       ) {
-        if (
-          event.target.classList.contains('prev') ||
-          event.target.classList.contains('arrow-prev')
-        ) {
+        if (event.target.classList.contains('prev') || event.target.classList.contains('arrow-prev')) {
           if (isEnabled) {
             previousSlide(currentSlide);
           }
-        } else if (
-          event.target.classList.contains('next') ||
-          event.target.classList.contains('arrow-next')
-        ) {
+        } else if (event.target.classList.contains('next') || event.target.classList.contains('arrow-next')) {
           if (isEnabled) {
             nextSlide(currentSlide);
           }
@@ -242,21 +217,18 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     });
 
-    surface.addEventListener('touchmove', function (event) {
+    surface.addEventListener('touchmove', function(event) {
       event.preventDefault();
     });
 
-    surface.addEventListener('touchend', function (event) {
+    surface.addEventListener('touchend', function(event) {
       let touchObj = event.changedTouches[0];
       distX = touchObj.pageX - startX;
       distY = touchObj.pageY - startY;
       elapsedTime = new Date().getTime() - startTime;
 
       if (elapsedTime <= allowedTime) {
-        if (
-          Math.abs(distX) >= threshold &&
-          Math.abs(distY) <= threshold
-        ) {
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= threshold) {
           if (distX > 0) {
             if (isEnabled) {
               previousSlide(currentSlide);
@@ -290,9 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === PORTFOLIO === //
   // Portfolio toggle button list
-  const portfolioButtons = document.querySelectorAll(
-    '.works__btn-toggle'
-  );
+  const portfolioButtons = document.querySelectorAll('.works__btn-toggle');
   // Portfolio navigation
   const portfolioNav = document.querySelector('.works-toggle');
   // Portfolio works container
@@ -305,9 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Event} event
    */
   const onTogglePortfolioButton = event => {
-    portfolioButtons.forEach(el =>
-      el.classList.remove('works__btn-toggle_active')
-    );
+    portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
 
     event.target.classList.add('works__btn-toggle_active');
 
@@ -403,9 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Clear inner border block
    */
   function clearBorderBlock() {
-    const insetBorderBlocks = document.querySelectorAll(
-      '.work_border-inset'
-    );
+    const insetBorderBlocks = document.querySelectorAll('.work_border-inset');
     insetBorderBlocks.forEach(el => {
       el.remove();
     });
@@ -426,9 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.querySelector('#submit-btn');
   const closeBtn = document.querySelector('#close-btn');
   const messageBlock = document.querySelector('.message-block');
-  const messageContent = document.querySelector(
-    '.message__content'
-  );
+  const messageContent = document.querySelector('.message__content');
 
   /**
    * Function forming a modal form submission window
@@ -498,12 +462,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===  TOGGLE MOBILE MENU === //
   const btnMobileMenu = document.querySelector('#btn-mob');
-  const btnMobileMenuAct = document.querySelector(
-    '#btn-mob-active'
-  );
-  const mobileMenuContainer = document.querySelector(
-    '.mobile-menu-container'
-  );
+  const btnMobileMenuAct = document.querySelector('#btn-mob-active');
+  const mobileMenuContainer = document.querySelector('.mobile-menu-container');
   // смотри выше
 
   /**
