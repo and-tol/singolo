@@ -305,6 +305,7 @@ a {
   border-bottom-color: #ea676b;
   border-bottom-width: 6px;
 }
+
 .header-container {
   margin-right: -40px;
   margin-left: -40px;
@@ -851,9 +852,9 @@ a {
   top: 50%;
   transform: translateY(-50%);
 }
-@media screen and (max-width: 375px) {
+@media (max-width: 605px) {
   .slider__nav.arrow-prev {
-    left: 15px;
+    left: 0;
   }
 }
 
@@ -862,9 +863,9 @@ a {
   top: 50%;
   transform: translateY(-50%);
 }
-@media screen and (max-width: 375px) {
+@media (max-width: 605px) {
   .slider__nav.arrow-next {
-    left: 15px;
+    right: 0;
   }
 }
 
