@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sectionHeader = document.querySelector('.header');
   const arrowPrev = document.querySelector('.arrow__prev');
   const arrowNext = document.querySelector('.arrow__next');
+  const leftBlackScreen = document.getElementById('screen-left');
+  const rightBlackScreen = document.getElementById('screen-right');
 
   // find/create content element NodeList. collection of slides
   const slides = document.querySelectorAll('.slide');
@@ -249,6 +251,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   swipedetect(slider);
 
+  // * Toggle Black Screen * //
+  leftBlackScreen.addEventListener('click', event => {
+    event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0;
+  });
+  rightBlackScreen.addEventListener('click', event => {
+    console.log('event', event.target);
+    event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0;
+  });
+
+  // * Color Header *//
   /**
    * Function changing color the section Header
    */
