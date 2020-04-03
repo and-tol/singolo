@@ -256,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0;
   });
   rightBlackScreen.addEventListener('click', event => {
-    console.log('event', event.target);
     event.target.style.opacity = event.target.style.opacity == 0 ? 1 : 0;
   });
 

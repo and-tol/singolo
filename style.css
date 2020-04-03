@@ -921,16 +921,14 @@ a {
 
 .screen.left {
   width: calc(196 / 1020 * 100%);
-  top: calc(130 / 600 * 100% - 2em);
+  top: calc(129 / 600 * 100%);
   left: calc(150 / 1020 * 100%);
-  padding: 2em 0;
 }
 
 .screen.right {
-  width: calc(410 / 1020 * 100%);
+  width: calc(340 / 1020 * 100%);
   top: calc(205 / 600 * 100%);
-  left: calc(510 / 1020 * 100% - 2em);
-  padding: 0 2em;
+  left: calc(510 / 1020 * 100%);
 }
 
 .js-show {
@@ -987,10 +985,7 @@ a {
     left: 0;
   }
 }
-.next {
-  display: block;
-}
-
+.next,
 .active-slide {
   display: block;
 }
