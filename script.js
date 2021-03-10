@@ -26,10 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   for (let i = 0; i < linksNavDesk.length; i++) {
-    linksNavDesk[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+    linksNavDesk[i].addEventListener('click', () =>
+      handleLinkNavClick(targetNav[i])
+    );
   }
   for (let i = 0; i < linksNavMob.length; i++) {
-    linksNavMob[i].addEventListener('click', () => handleLinkNavClick(targetNav[i]));
+    linksNavMob[i].addEventListener('click', () =>
+      handleLinkNavClick(targetNav[i])
+    );
   }
 
   // --- TOGGLE MENU --- //
@@ -98,13 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideSlide(direction) {
     isEnabled = false;
     slides[currentSlide].classList.add(direction);
-    slides[currentSlide].addEventListener('animationend', function() {
+    slides[currentSlide].addEventListener('animationend', function () {
       this.classList.remove('active-slide', direction);
     });
   }
   function showSlide(direction) {
     slides[currentSlide].classList.add('next', direction);
-    slides[currentSlide].addEventListener('animationend', function() {
+    slides[currentSlide].addEventListener('animationend', function () {
       this.classList.remove('next', direction);
       this.classList.add('active-slide');
       isEnabled = true;
@@ -122,14 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Events Slideshow
-  prevBtn.addEventListener('click', function() {
+  prevBtn.addEventListener('click', function () {
     if (isEnabled) {
       previousSlide(currentSlide);
       // Background color change
       headerColorChange();
     }
   });
-  nextBtn.addEventListener('click', function() {
+  nextBtn.addEventListener('click', function () {
     if (isEnabled) {
       nextSlide(currentSlide);
       // Background color change
@@ -162,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let allowedTime = 300;
 
     // Events for mouse
-    surface.addEventListener('mousedown', function(event) {
+    surface.addEventListener('mousedown', function (event) {
       startX = event.pageX;
       startY = event.pageY;
       startTime = new Date().getTime();
@@ -170,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     });
 
-    surface.addEventListener('mouseup', function(event) {
+    surface.addEventListener('mouseup', function (event) {
       distX = event.pageX - startX;
       distY = event.pageY - startY;
       elapsedTime = new Date().getTime() - startTime;
@@ -193,18 +197,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Events for touch
-    surface.addEventListener('touchstart', function(event) {
+    surface.addEventListener('touchstart', function (event) {
       // для срабатывание стрелок
       if (
         event.target.classList.contains('slider__nav') ||
         event.target.classList.contains('arrow') ||
         event.target.classList.contains('arrow-svg')
       ) {
-        if (event.target.classList.contains('prev') || event.target.classList.contains('arrow-prev')) {
+        if (
+          event.target.classList.contains('prev') ||
+          event.target.classList.contains('arrow-prev')
+        ) {
           if (isEnabled) {
             previousSlide(currentSlide);
           }
-        } else if (event.target.classList.contains('next') || event.target.classList.contains('arrow-next')) {
+        } else if (
+          event.target.classList.contains('next') ||
+          event.target.classList.contains('arrow-next')
+        ) {
           if (isEnabled) {
             nextSlide(currentSlide);
           }
@@ -219,11 +229,11 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     });
 
-    surface.addEventListener('touchmove', function(event) {
+    surface.addEventListener('touchmove', function (event) {
       event.preventDefault();
     });
 
-    surface.addEventListener('touchend', function(event) {
+    surface.addEventListener('touchend', function (event) {
       let touchObj = event.changedTouches[0];
       distX = touchObj.pageX - startX;
       distY = touchObj.pageY - startY;
@@ -286,7 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Event} event
    */
   const onTogglePortfolioButton = event => {
-    portfolioButtons.forEach(el => el.classList.remove('works__btn-toggle_active'));
+    portfolioButtons.forEach(el =>
+      el.classList.remove('works__btn-toggle_active')
+    );
 
     event.target.classList.add('works__btn-toggle_active');
 

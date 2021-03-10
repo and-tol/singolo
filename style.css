@@ -888,12 +888,18 @@ a {
 
 .arrow__prev,
 .arrow__next {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
+  top: 50%;
+}
+
+.arrow__prev {
+  transform: translate3d(0, -50%, 0);
 }
 
 .arrow__next {
-  transform: rotate(180deg);
+  transform: translate3d(0, -50%, 0) rotate(180deg);
 }
 
 .js-background_blue {
